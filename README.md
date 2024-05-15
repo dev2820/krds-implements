@@ -30,8 +30,8 @@
 - [ ] Colors 스토리 추가
 - [ ] Typography 스토리 추가
 - [ ] Icongraphy 스토리 추가
-- [ ] Radii 스토리 추가
-- [ ] Space 스토리 추가
+- [ ] Layout 스토리 추가
+- [ ] Shape 스토리 추가
 
 ### Components
 
@@ -95,6 +95,9 @@
 - [ ] textarea
 - [ ] text input
 - [ ] file upload
+
+---
+
 - [**아이덴티티**](https://uiux.egovframe.go.kr/guide/component/component_02_01.html)
   - [**공식 배너 (Masthead)**](https://uiux.egovframe.go.kr/guide/component/component_02_01.html)
   - [**운영기관 식별자 (Identifier)**](https://uiux.egovframe.go.kr/guide/component/component_02_04.html)
