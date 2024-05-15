@@ -10,10 +10,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@krds/utils": "workspace:*",
     "@krds/tsconfig": "workspace:*",
+    "@krds/utils": "workspace:*",
     "@radix-ui/react-accordion": "^1.1.2",
     "@radix-ui/react-popover": "^1.0.7",
+    "@radix-ui/react-slot": "^1.0.2",
     "class-variance-authority": "^0.7.0",
     "classnames": "^2.5.1",
     "lucide-react": "^0.378.0",
