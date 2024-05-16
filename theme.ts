@@ -160,14 +160,16 @@ const fontWeight = {
 } as const;
 
 const borderRadius = {
-  none: "0rem", // 0px
-  sm: "0.125rem", // 2px
-  base: "0.25rem", // 4px
-  md: "0.375rem", // 6px
-  lg: "0.5rem", // 8px
-  xl: "0.75rem", // 12px
-  "2xl": "1rem", // 16px
-  "3xl": "1.5rem", // 20px
+  0: '0px',
+  1: "2px",
+  2: '4px',
+  3: '6px',
+  4: '8px',
+  5: '12px',
+  6: '16px',
+  7: '20px',
+  8: '24px',
+  9: '40px',
   full: "9999px",
 } as const;
 
