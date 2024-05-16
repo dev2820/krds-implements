@@ -75,7 +75,6 @@ export default defineConfig({
         information: TOKEN.colors.information[5]
       },
       dimmed: TOKEN.colors.alpha[75],
-
     },
   },
 });

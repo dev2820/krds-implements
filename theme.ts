@@ -155,11 +155,8 @@ const fontSize = {
 } as const;
 
 const fontWeight = {
-  extrabold: "800",
   bold: "700",
-  semibold: "600",
-  medium: "500",
-  normal: "400",
+  regular: "400",
 } as const;
 
 const borderRadius = {
