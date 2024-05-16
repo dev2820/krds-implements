@@ -1,9 +1,6 @@
-import path from "path";
-import { defineConfig, presetWind, presetIcons } from "unocss";
+import { defineConfig, presetWind } from "unocss";
 
 import { TOKEN } from "./theme";
-
-const ICON_PATH = path.resolve(__dirname, "./src/assets/icons");
 
 export default defineConfig({
   presets: [presetWind],
@@ -11,38 +8,74 @@ export default defineConfig({
     ...TOKEN,
     colors: {
       primary: {
-        ...TOKEN.colors.orange,
-        DEFAULT: TOKEN.colors.orange[500],
+        ...TOKEN.colors.primary,
+        DEFAULT: TOKEN.colors.primary[50],
+        hover: TOKEN.colors.primary[60],
+        active: TOKEN.colors.primary[70],
+        disabled: TOKEN.colors.grayscale[20]
       },
-      success: {
-        ...TOKEN.colors.green,
-        DEFAULT: TOKEN.colors.green[600],
+      secondary: {
+        ...TOKEN.colors.secondary,
+        DEFAULT: TOKEN.colors.secondary[50],
+        hover: TOKEN.colors.secondary[60],
+        active: TOKEN.colors.secondary[70],
+        disabled: TOKEN.colors.grayscale[20]
+      },
+      point: {
+        ...TOKEN.colors.point,
+        DEFAULT: TOKEN.colors.point[50]
+      },
+      grayscale: {
+        ...TOKEN.colors.grayscale,
+        DEFAULT: TOKEN.colors.grayscale[10]
+      },
+      alpha: {
+        ...TOKEN.colors.alpha
+      },
+      danger: {
+        ...TOKEN.colors.danger,
+        DEFAULT: TOKEN.colors.danger[50],
       },
       warning: {
-        ...TOKEN.colors.yellow,
-        DEFAULT: TOKEN.colors.yellow[500],
+        ...TOKEN.colors.warning,
+        DEFAULT: TOKEN.colors.warning[50]
       },
-      error: {
-        ...TOKEN.colors.red,
-        DEFAULT: TOKEN.colors.red[600],
+      success: '#008A1E',
+      information: '#2768FF',
+      background: {
+        DEFAULT: TOKEN.colors.grayscale[0],
+        layer1: TOKEN.colors.grayscale[5],
+        layer2: TOKEN.colors.secondary[5],
       },
-      info: {
-        ...TOKEN.colors.blue,
-        DEFAULT: TOKEN.colors.blue[500],
+      disabled: TOKEN.colors.grayscale[20],
+      border: {
+        DEFAULT: TOKEN.colors.grayscale[40],
+        input: TOKEN.colors.grayscale[60],
+        active: TOKEN.colors.primary[50],
+        invalid: TOKEN.colors.danger[50],
+        danger: TOKEN.colors.danger[10],
+        warning: TOKEN.colors.warning[10],
+        success: TOKEN.colors.success[10],
+        information: TOKEN.colors.information[10],
       },
-      background: TOKEN.colors.grey[150],
-      foreground: TOKEN.colors.black,
-      grey: TOKEN.colors.grey,
-      popover: {
-        DEFAULT: TOKEN.colors.white,
-        foreground: TOKEN.colors.black,
+      text: {
+        disabled: TOKEN.colors.grayscale[50],
+        body: TOKEN.colors.grayscale[90],
+        title: TOKEN.colors.grayscale[90],
+        detail: TOKEN.colors.grayscale[70],
+        danger: TOKEN.colors.danger[60],        
+        warning: TOKEN.colors.warning[10],
+        success: TOKEN.colors.success[10],
+        information: TOKEN.colors.information[10],
       },
-      accordion: {
-        icon: TOKEN.colors.black,
+      surface: {
+        danger: TOKEN.colors.danger[5],
+        warning: TOKEN.colors.warning[5],
+        success: TOKEN.colors.success[5],
+        information: TOKEN.colors.information[5]
       },
-      muted: {
-        DEFAULT: TOKEN.colors.grey[300],
-      },
+      dimmed: TOKEN.colors.alpha[75],
+
     },
   },
 });
