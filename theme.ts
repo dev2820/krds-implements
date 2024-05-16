@@ -138,7 +138,7 @@ const breakpoints = {
 } as const;
 
 const fontFamily = {
-  sans: "Pretendard, Spoqa Han Sans, Avenir, Helvetica, Arial,sans-serif",
+  sans: "Pretendard GOV Variable, Spoqa Han Sans, Avenir, Helvetica, Arial,sans-serif",
 } as const;
 
 const fontSize = {
