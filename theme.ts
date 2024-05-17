@@ -1,4 +1,3 @@
-
 const colors = {
   primary: {
     0: '#FFFFFF',
@@ -61,7 +60,7 @@ const colors = {
     25: '#BFBFBF',
     50: '#808080',
     75: '#404040',
-    100: '#000000'
+    100: '#000000',
   },
   danger: {
     0: '#FFFFFF',
@@ -122,46 +121,35 @@ const colors = {
 } as const;
 
 const screens = {
-  sm: "480px",
-  md: "768px",
-  lg: "992px",
-  xl: "1280px",
-  "2xl": "1536px",
-} as const;
-
-const breakpoints = {
-  sm: "480.1px",
-  md: "768.1px",
-  lg: "992.1px",
-  xl: "1280.1px",
-  "2xl": "1536.1px",
+  mobile: '600px',
+  tablet: '1024px',
 } as const;
 
 const fontFamily = {
-  sans: "Pretendard GOV Variable, Spoqa Han Sans, Avenir, Helvetica, Arial,sans-serif",
+  sans: 'Pretendard GOV Variable, Spoqa Han Sans, Avenir, Helvetica, Arial,sans-serif',
 } as const;
 
 const fontSize = {
-  "6xl": "3.75rem", // 60px
-  "5xl": "3rem", // 48px
-  "4xl": "2.25rem", // 36px
-  "3xl": "1.875rem", // 30px
-  "2xl": "1.5rem", // 24px
-  xl: "1.25rem", // 20px
-  lg: "1.125rem", // 18px
-  md: "1rem", // 16px
-  sm: "0.875rem", // 14px
-  xs: "0.75rem", // 12px
+  '6xl': '3.75rem', // 60px
+  '5xl': '3rem', // 48px
+  '4xl': '2.25rem', // 36px
+  '3xl': '1.875rem', // 30px
+  '2xl': '1.5rem', // 24px
+  xl: '1.25rem', // 20px
+  lg: '1.125rem', // 18px
+  md: '1rem', // 16px
+  sm: '0.875rem', // 14px
+  xs: '0.75rem', // 12px
 } as const;
 
 const fontWeight = {
-  bold: "700",
-  regular: "400",
+  bold: '700',
+  regular: '400',
 } as const;
 
 const borderRadius = {
   0: '0px',
-  1: "2px",
+  1: '2px',
   2: '4px',
   3: '6px',
   4: '8px',
@@ -170,7 +158,7 @@ const borderRadius = {
   7: '20px',
   8: '24px',
   9: '40px',
-  full: "9999px",
+  full: '9999px',
 } as const;
 
 const animation = {
@@ -189,7 +177,6 @@ const animation = {
 
 export const TOKEN = {
   screens,
-  breakpoints,
   fontFamily,
   fontSize,
   fontWeight,

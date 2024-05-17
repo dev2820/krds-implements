@@ -1,31 +1,42 @@
-import { cva, type VariantProps } from "class-variance-authority";
-import React from "react"
+import { cva, type VariantProps } from 'class-variance-authority';
 
-import { cn } from "../../utils";
+import React from 'react';
+
+import { cn } from '../../utils';
 
 export type DisplayProps<T extends React.ElementType> = {
-  as?:T;
+  as?: T;
   children?: React.ReactNode;
-} & Omit<React.ComponentPropsWithoutRef<T>,"as"|"children">
-& VariantProps<typeof displayVariants>
+} & Omit<React.ComponentPropsWithoutRef<T>, 'as' | 'children'> &
+  VariantProps<typeof displayVariants>;
 
-function Display<C extends React.ElementType>({ as, size, className, children, ...props}:DisplayProps<C>) {
+function Display<C extends React.ElementType>({
+  as,
+  size,
+  className,
+  children,
+  ...props
+}: DisplayProps<C>) {
   const Comp = as || 'span';
 
-  return <Comp className={cn(displayVariants({ size }),className)} {...props}>{children}</Comp>
+  return (
+    <Comp className={cn(displayVariants({ size }), className)} {...props}>
+      {children}
+    </Comp>
+  );
 }
 
-const displayVariants = cva('leading-normal tracking-1px font-bold',{
+const displayVariants = cva('leading-normal tracking-1px font-bold', {
   variants: {
     size: {
-      lg: 'text-66px sm:text-40px',
-      md: 'text-50px sm:text-32px',
-      sm: 'text-40px sm:text-25px',
+      lg: 'text-66px <mobile:text-40px',
+      md: 'text-50px <mobile:text-32px',
+      sm: 'text-40px <mobile:text-25px',
     },
   },
   defaultVariants: {
-    size: 'md'
-  }
-})
+    size: 'md',
+  },
+});
 
-export { Display }
+export { Display };
