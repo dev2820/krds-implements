@@ -9,6 +9,12 @@ export default defineConfig({
     breakpoints: {
       ...TOKEN.screens,
     },
+    maxWidth: {
+      desktop: '1280px',
+    },
+    spacing: {
+      ...TOKEN.spacing,
+    },
     colors: {
       primary: {
         ...TOKEN.colors.primary,

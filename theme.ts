@@ -125,6 +125,20 @@ const screens = {
   tablet: '1024px',
 } as const;
 
+const spacing = {
+  0: '0px',
+  1: '2px',
+  2: '4px',
+  3: '8px',
+  4: '12px',
+  5: '16px',
+  6: '20px',
+  7: '24px',
+  8: '32px',
+  9: '40px',
+  10: '48px',
+} as const;
+
 const fontFamily = {
   sans: 'Pretendard GOV Variable, Spoqa Han Sans, Avenir, Helvetica, Arial,sans-serif',
 } as const;
@@ -183,4 +197,5 @@ export const TOKEN = {
   colors,
   borderRadius,
   animation,
+  spacing,
 } as const;
