@@ -20,7 +20,10 @@ const AccordionItem = forwardRef<
 >(({ className, ...props }, ref) => (
   <AccordionPrimitive.Item
     ref={ref}
-    className={cn('border-b [&[data-disabled]]:cursor-not-allowed', className)}
+    className={cn(
+      'border-b [&[data-disabled]]:cursor-not-allowed [&[data-disabled]]:opacity-40',
+      className,
+    )}
     {...props}
   />
 ));
