@@ -1,7 +1,5 @@
 import * as Icon from 'lucide-react';
 
-import React from 'react';
-
 import {
   Masthead,
   MastheadContainer,

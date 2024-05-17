@@ -2,7 +2,7 @@ import { Slot } from '@radix-ui/react-slot';
 import { cva } from 'class-variance-authority';
 
 import type { ComponentProps, ComponentPropsWithoutRef } from 'react';
-import React, { forwardRef, useState } from 'react';
+import { forwardRef, useState } from 'react';
 
 import { createContext } from '../../hooks/create-context';
 import { cn } from '../../utils';
