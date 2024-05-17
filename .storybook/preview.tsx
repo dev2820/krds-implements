@@ -3,6 +3,8 @@ import type { Preview } from '@storybook/react';
 import '@unocss/reset/tailwind.css';
 import 'virtual:uno.css';
 
+import "../packages/react/src/global.css"
+
 import React from 'react';
 
 const preview: Preview = {
@@ -17,7 +19,6 @@ const preview: Preview = {
   decorators: [
     Story => (
       <div className="">
-        <link></link>
         <Story />
       </div>
     ),
