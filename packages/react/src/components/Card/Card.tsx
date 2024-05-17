@@ -1,8 +1,8 @@
 import { type VariantProps, cva } from 'class-variance-authority';
 
-import type { ComponentProps, HTMLAttributes } from 'react';
+import { forwardRef, type ComponentProps, type HTMLAttributes } from 'react';
 
-import { cn } from '@/utils';
+import { cn } from '../../utils';
 
 const cardVariants = cva('rounded-lg text-card-foreground', {
   variants: {
