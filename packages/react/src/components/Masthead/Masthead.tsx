@@ -32,7 +32,12 @@ const Root = forwardRef<HTMLDivElement, ComponentPropsWithoutRef<'div'>>(
     };
     return (
       <Provider value={defaultValue}>
-        <div role="banner" className={cn('', className)} ref={ref} {...props}>
+        <div
+          role="banner"
+          className={cn('bg-background-2', className)}
+          ref={ref}
+          {...props}
+        >
           {children}
         </div>
       </Provider>
@@ -43,11 +48,16 @@ const Root = forwardRef<HTMLDivElement, ComponentPropsWithoutRef<'div'>>(
 export type ContainerProps = ComponentProps<'div'>;
 const Container = forwardRef<HTMLDivElement, ComponentPropsWithoutRef<'div'>>(
   ({ className, children, ...props }, ref) => {
+    const context = useContext();
+
     return (
       <div
-        className={cn('flex flex-row gap-1', className)}
-        {...props}
+        className={cn('min-h-8', className)}
+        data-orientation={'vertical'}
+        data-state={context.open ? 'open' : 'close'}
+        aria-expanded={context.open ? 'true' : 'false'}
         ref={ref}
+        {...props}
       >
         {children}
       </div>
@@ -71,7 +81,7 @@ const Trigger = forwardRef<
 
   return (
     <Comp
-      className={cn('', className)}
+      className={cn('[aria-open>svg]:rotate-180', className)}
       ref={ref}
       onClick={handleClick}
       {...props}
@@ -79,11 +89,11 @@ const Trigger = forwardRef<
   );
 });
 
-const descriptionVariant = cva('overflow-hidden', {
+const descriptionVariant = cva('overflow-hidden border-border-secondary', {
   variants: {
     open: {
-      true: 'h-auto',
-      false: 'h-0',
+      true: 'max-h-500px',
+      false: 'max-h-0',
     },
   },
   defaultVariants: {
@@ -99,9 +109,9 @@ const Description = forwardRef<HTMLDivElement, ComponentProps<'div'>>(
     return (
       <div
         className={cn(descriptionVariant({ open: context.open }), className)}
+        role="region"
         data-orientation={'vertical'}
         data-state={context.open ? 'open' : 'close'}
-        aria-expanded={context.open ? 'true' : 'false'}
         ref={ref}
         {...props}
       />

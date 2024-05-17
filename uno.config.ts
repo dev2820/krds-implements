@@ -49,12 +49,18 @@ export default defineConfig({
         ...TOKEN.colors.warning,
         DEFAULT: TOKEN.colors.warning[50],
       },
-      success: '#008A1E',
-      information: '#2768FF',
+      success: {
+        ...TOKEN.colors.success,
+        DEFAULT: TOKEN.colors.success[50],
+      },
+      information: {
+        ...TOKEN.colors.information,
+        DEFAULT: TOKEN.colors.information[50],
+      },
       background: {
         DEFAULT: TOKEN.colors.grayscale[0],
-        layer1: TOKEN.colors.grayscale[5],
-        layer2: TOKEN.colors.secondary[5],
+        1: TOKEN.colors.grayscale[5],
+        2: TOKEN.colors.secondary[5],
       },
       disabled: TOKEN.colors.grayscale[20],
       border: {
@@ -66,6 +72,8 @@ export default defineConfig({
         warning: TOKEN.colors.warning[10],
         success: TOKEN.colors.success[10],
         information: TOKEN.colors.information[10],
+        primary: TOKEN.colors.primary[10],
+        secondary: TOKEN.colors.secondary[10],
       },
       text: {
         disabled: TOKEN.colors.grayscale[50],
