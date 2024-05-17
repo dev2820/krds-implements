@@ -68,7 +68,7 @@
 #### 액션
 
 - [ ] link
-- [ ] button (@dev2820)
+- [ ] [button](https://uiux.egovframe.go.kr/guide/component/component_05_02.html) (@dev2820)
 
 #### 선택
 
