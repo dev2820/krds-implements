@@ -1,12 +1,13 @@
 import * as Icon from 'lucide-react';
 
-import { Body } from '../Text/Body';
-import { Title } from '../Text/Title';
+import { Text } from '../Text';
 import {
   Masthead,
   MastheadContainer,
   MastheadDescription,
-  MastheadTrigger,
+  MastheadDescriptionContent,
+  MastheadDescriptionTitle,
+  MastheadDropdown,
   type MastheadProps,
 } from './index';
 
@@ -32,29 +33,37 @@ export const Default = {
     return (
       <section className="p-4 w-full">
         <Masthead {...props}>
-          <MastheadContainer className="flex flex-row items-center flex-wrap gap-4 <mobile:gap-2 px-4 py-2">
-            <Body size="sm">이 누리집은 가짜 누리집입니다.</Body>
-            <MastheadTrigger asChild>
-              <button className="color-secondary flex flex-row items-center gap-1">
-                <Body size="sm">가짜 누리집 열기</Body>
-                <Icon.ChevronDown size={12} />
-              </button>
-            </MastheadTrigger>
+          <MastheadContainer className="pl-28px korean-flag flex flex-row items-center flex-wrap <mobile:gap-2">
+            <Text.Body size="sm" className="mr-5">
+              이 누리집은 가짜 누리집입니다.
+            </Text.Body>
+            <MastheadDropdown className="color-secondary flex flex-row items-center gap-1">
+              <Text.Body size="sm">가짜 누리집 열기</Text.Body>
+            </MastheadDropdown>
           </MastheadContainer>
           <MastheadDescription>
-            <dl className="py-6 border-t border-border-secondary px-4">
-              <h3 className="flex flex-row items-center mb-4">
-                <div className="inline-block h-5 w-5 bg-black rounded-full mr-2 "></div>
-                <Title as="dt" size="sm">
-                  가짜 누리집 주소 확인하기
-                </Title>
-              </h3>
-              <Body as="dd" size="sm" className="ml-7">
-                이 누리집은 가짜 누리집입니다.
-                <br />
-                대충 아무말 넣고싶은데 그럴싸한 단어를 넣기 힘드네요.
-              </Body>
-            </dl>
+            <MastheadDescriptionTitle className="goverment pl-28px flex flex-row items-center">
+              <Text.Body size="md" bold>
+                가짜 누리집 주소 확인하기
+              </Text.Body>
+            </MastheadDescriptionTitle>
+            <MastheadDescriptionContent>
+              <Text.Detail as="p" className="mb-7">
+                go.kr을 사용하지 않는 이 누리집은 대한민국 정부에서 관리하지
+                않는 가짜 누리집입니다.
+                <br />이 밖에 or.kr 또는 .kr등 다른 도메인 주소를 사용하지 않고
+                있다면 아래 URL에서 도메인 주소를 확인할 수 없습니다.
+              </Text.Detail>
+              <Text.Body
+                as="a"
+                href="#"
+                size="sm"
+                className="inline-flex flex-row items-center gap-2"
+              >
+                안 운영중인 가짜 누리집안보기
+                <Icon.ExternalLink className="inline-block" size={20} />
+              </Text.Body>
+            </MastheadDescriptionContent>
           </MastheadDescription>
         </Masthead>
       </section>

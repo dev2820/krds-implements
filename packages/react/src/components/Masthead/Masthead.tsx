@@ -1,5 +1,6 @@
 import { Slot } from '@radix-ui/react-slot';
 import { cva } from 'class-variance-authority';
+import { ChevronDown } from 'lucide-react';
 
 import type { ComponentProps, ComponentPropsWithoutRef } from 'react';
 import { forwardRef, useState } from 'react';
@@ -65,13 +66,13 @@ const Container = forwardRef<HTMLDivElement, ComponentPropsWithoutRef<'div'>>(
   },
 );
 
-export type TriggerProps = ComponentProps<'div'>;
-const Trigger = forwardRef<
+export type DropdownProps = ComponentProps<'div'>;
+const Dropdown = forwardRef<
   HTMLButtonElement,
   ComponentProps<'button'> & {
     asChild?: boolean;
   }
->(({ asChild, className, ...props }, ref) => {
+>(({ asChild, children, className, ...props }, ref) => {
   const context = useContext();
   const Comp = asChild ? Slot : 'button';
 
@@ -81,42 +82,74 @@ const Trigger = forwardRef<
 
   return (
     <Comp
-      className={cn('[aria-open>svg]:rotate-180', className)}
+      className={cn('[&[data-state=open]>svg]:rotate-180', className)}
       ref={ref}
       onClick={handleClick}
+      data-state={context.open ? 'open' : 'close'}
       {...props}
-    />
+    >
+      {children}
+      <ChevronDown size={12} className="transition-transform duration-200" />
+    </Comp>
   );
 });
 
-const descriptionVariant = cva('overflow-hidden border-border-secondary', {
-  variants: {
-    open: {
-      true: 'max-h-500px',
-      false: 'max-h-0',
+const descriptionVariant = cva(
+  'overflow-hidden border-border-secondary transition-all duration-300',
+  {
+    variants: {
+      open: {
+        true: 'max-h-500px',
+        false: 'max-h-0',
+      },
+    },
+    defaultVariants: {
+      open: false,
     },
   },
-  defaultVariants: {
-    open: false,
-  },
-});
+);
 
-export type DescriptionProps = ComponentProps<'div'>;
-const Description = forwardRef<HTMLDivElement, ComponentProps<'div'>>(
-  ({ className, ...props }, ref) => {
+export type DescriptionProps = ComponentProps<'dl'>;
+const Description = forwardRef<HTMLDListElement, ComponentProps<'dl'>>(
+  ({ children, className, ...props }, ref) => {
     const context = useContext();
 
     return (
-      <div
+      <dl
         className={cn(descriptionVariant({ open: context.open }), className)}
-        role="region"
         data-orientation={'vertical'}
         data-state={context.open ? 'open' : 'close'}
         ref={ref}
         {...props}
-      />
+      >
+        <hr className="border-t border-border-secondary mb-4" />
+        {children}
+      </dl>
     );
   },
 );
 
-export { Root, Container, Trigger, Description };
+export type DescriptionTitleProps = ComponentProps<'dt'>;
+const DescriptionTitle = forwardRef<HTMLElement, ComponentProps<'dt'>>(
+  ({ className, ...props }, ref) => {
+    return <dt className={cn('mb-4', className)} ref={ref} {...props} />;
+  },
+);
+export type DescriptionContentProps = ComponentProps<'dd'>;
+const DescriptionContent = forwardRef<HTMLElement, ComponentProps<'dd'>>(
+  ({ children, className, ...props }, ref) => {
+    return (
+      <dd className={cn('mb-7 ml-28px', className)} ref={ref} {...props}>
+        {children}
+      </dd>
+    );
+  },
+);
+export {
+  Root,
+  Container,
+  Dropdown,
+  Description,
+  DescriptionTitle,
+  DescriptionContent,
+};

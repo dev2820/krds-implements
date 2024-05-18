@@ -1,21 +1,33 @@
-import { cva, type VariantProps } from "class-variance-authority";
-import React from "react"
-import { cn } from "../../utils";
+import { cva, type VariantProps } from 'class-variance-authority';
 
+import React from 'react';
+
+import { cn } from '../../utils';
 
 export type BodyProps<T extends React.ElementType> = {
-  as?:T;
+  as?: T;
   children?: React.ReactNode;
-} & Omit<React.ComponentPropsWithoutRef<T>,"as"|"children">
-& VariantProps<typeof bodyVariants>
+} & Omit<React.ComponentPropsWithoutRef<T>, 'as' | 'children'> &
+  VariantProps<typeof bodyVariants>;
 
-function Body<C extends React.ElementType>({ as, size, bold, className, children, ...props}:BodyProps<C>) {
+function Body<C extends React.ElementType>({
+  as,
+  size,
+  bold,
+  className,
+  children,
+  ...props
+}: BodyProps<C>) {
   const Comp = as || 'span';
-  
-  return <Comp className={cn(bodyVariants({ size, bold }),className)} {...props}>{children}</Comp>
+
+  return (
+    <Comp className={cn(bodyVariants({ size, bold }), className)} {...props}>
+      {children}
+    </Comp>
+  );
 }
 
-const bodyVariants = cva('leading-normal',{
+const bodyVariants = cva('leading-normal color-text-body', {
   variants: {
     size: {
       lg: 'text-19px',
@@ -24,13 +36,13 @@ const bodyVariants = cva('leading-normal',{
     },
     bold: {
       true: 'font-bold',
-      false: 'font-normal'
-    }
+      false: 'font-normal',
+    },
   },
   defaultVariants: {
     size: 'md',
-    bold: false
-  }
-})
+    bold: false,
+  },
+});
 
-export { Body }
+export { Body };
