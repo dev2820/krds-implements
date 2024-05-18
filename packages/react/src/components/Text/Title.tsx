@@ -26,7 +26,7 @@ function Title<C extends React.ElementType>({
   );
 }
 
-const titleVariants = cva('leading-normal font-bold color-text-title', {
+const titleVariants = cva('leading-normal font-bold', {
   variants: {
     size: {
       '2xl': 'text-32px tracking-1px <mobile:text-25px',

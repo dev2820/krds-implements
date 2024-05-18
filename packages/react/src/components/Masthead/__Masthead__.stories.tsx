@@ -34,7 +34,7 @@ export const Default = {
       <section className="p-4 w-full">
         <Masthead {...props}>
           <MastheadContainer className="pl-28px korean-flag flex flex-row items-center flex-wrap <mobile:gap-2">
-            <Text.Body size="sm" className="mr-5">
+            <Text.Body size="sm" className="mr-5i color-text-title">
               이 누리집은 가짜 누리집입니다.
             </Text.Body>
             <MastheadDropdown className="color-secondary flex flex-row items-center gap-1">
@@ -50,7 +50,7 @@ export const Default = {
               </Text.Body>
             </MastheadDescriptionTitle>
             <MastheadDescriptionContent>
-              <Text.Detail as="p" className="mb-7">
+              <Text.Detail as="p" className="mb-7 color-text-detail">
                 go.kr을 사용하지 않는 이 누리집은 대한민국 정부에서 관리하지
                 않는 가짜 누리집입니다.
                 <br />이 밖에 or.kr 또는 .kr등 다른 도메인 주소를 사용하지 않고
@@ -60,7 +60,7 @@ export const Default = {
                 as="a"
                 href="#"
                 size="sm"
-                className="inline-flex flex-row items-center gap-2"
+                className="inline-flex flex-row items-center gap-2 color-text-body"
               >
                 안 운영중인 가짜 누리집안보기
                 <Icon.ExternalLink className="inline-block" size={20} />
