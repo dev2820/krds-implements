@@ -38,7 +38,7 @@
 #### 아이덴티티
 
 - [x] [masthead](https://uiux.egovframe.go.kr/guide/component/component_02_01.html) (@dev2820)
-- [ ] identifier
+- [x] [identifier](https://uiux.egovframe.go.kr/guide/component/component_02_04.html) (@dev2820)
 - [ ] footer
 - [ ] header
 
