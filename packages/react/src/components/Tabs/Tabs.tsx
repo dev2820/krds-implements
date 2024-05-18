@@ -1,12 +1,13 @@
 import * as TabsPrimitive from '@radix-ui/react-tabs';
 
+import { forwardRef } from 'react';
 import type {
   ElementRef,
   ComponentPropsWithoutRef,
   ComponentProps,
 } from 'react';
 
-import { cn } from '@/utils';
+import { cn } from '../../utils';
 
 export type TabsProps = ComponentProps<typeof Tabs>;
 const Tabs = forwardRef<

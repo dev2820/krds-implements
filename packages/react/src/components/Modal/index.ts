@@ -19,4 +19,4 @@ export {
   type DialogFooterProps,
   type DialogTitleProps,
   type DialogDescriptionProps,
-} from './Dialog';
+} from './Modal';

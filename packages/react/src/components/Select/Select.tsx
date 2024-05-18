@@ -1,8 +1,9 @@
 import { type VariantProps, cva } from 'class-variance-authority';
 
+import { forwardRef } from 'react';
 import type { SelectHTMLAttributes } from 'react';
 
-import { cn } from '@/utils';
+import { cn } from '../../utils';
 
 const selectVariants = cva(
   [

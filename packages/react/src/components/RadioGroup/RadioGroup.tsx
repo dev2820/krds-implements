@@ -1,12 +1,13 @@
 import * as RadioGroupPrimitive from '@radix-ui/react-radio-group';
 
+import { forwardRef } from 'react';
 import type {
   ElementRef,
   ComponentPropsWithoutRef,
   ComponentProps,
 } from 'react';
 
-import { cn } from '@/utils';
+import { cn } from '../../utils';
 
 export type RadioGroupProps = ComponentProps<typeof RadioGroup>;
 const RadioGroup = forwardRef<

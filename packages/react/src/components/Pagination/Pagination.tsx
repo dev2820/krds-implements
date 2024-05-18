@@ -1,7 +1,7 @@
 import type { ComponentProps } from 'react';
+import { forwardRef } from 'react';
 
-import { cn } from '@/utils';
-
+import { cn } from '../../utils';
 import { type ButtonProps, buttonVariants } from '../Button';
 
 export type PaginationProps = ComponentProps<typeof Pagination>;

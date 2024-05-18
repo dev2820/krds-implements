@@ -1,8 +1,8 @@
 import { type VariantProps, cva } from 'class-variance-authority';
 
-import type { InputHTMLAttributes } from 'react';
+import { forwardRef, type InputHTMLAttributes } from 'react';
 
-import { cn } from '@/utils';
+import { cn } from '../../utils';
 
 const inputVariants = cva(
   [
@@ -28,10 +28,10 @@ const inputVariants = cva(
   },
 );
 
-export type InputProps = InputHTMLAttributes<HTMLInputElement> &
+export type InputTextProps = InputHTMLAttributes<HTMLInputElement> &
   VariantProps<typeof inputVariants>;
 
-const Input = forwardRef<HTMLInputElement, InputProps>(
+const InputText = forwardRef<HTMLInputElement, InputTextProps>(
   ({ className, type, sizeVariant, ...props }, ref) => {
     return (
       <input
@@ -43,6 +43,6 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
     );
   },
 );
-Input.displayName = 'Input';
+InputText.displayName = 'Input';
 
-export { Input };
+export { InputText };

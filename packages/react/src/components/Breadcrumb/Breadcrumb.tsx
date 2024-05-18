@@ -1,13 +1,14 @@
 import { Slot } from '@radix-ui/react-slot';
 import { VariantProps, cva } from 'class-variance-authority';
 
+import { forwardRef } from 'react';
 import type {
   ComponentPropsWithoutRef,
   ReactNode,
   ComponentProps,
 } from 'react';
 
-import { cn } from '@/utils';
+import { cn } from '../../utils';
 
 export type BreadcrumbProps = ComponentProps<typeof Breadcrumb>;
 const Breadcrumb = forwardRef<

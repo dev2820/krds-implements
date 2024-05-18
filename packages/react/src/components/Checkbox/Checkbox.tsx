@@ -1,9 +1,10 @@
 import * as CheckboxPrimitive from '@radix-ui/react-checkbox';
 import { type VariantProps, cva } from 'class-variance-authority';
 
+import { forwardRef } from 'react';
 import type { ComponentPropsWithoutRef, ElementRef } from 'react';
 
-import { cn } from '@/utils';
+import { cn } from '../../utils';
 
 const checkboxVariants = cva('rounded', {
   variants: {
