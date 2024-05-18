@@ -38,7 +38,9 @@ export const Default = {
               이 누리집은 가짜 누리집입니다.
             </Text.Body>
             <MastheadDropdown className="color-secondary flex flex-row items-center gap-1">
-              <Text.Body size="sm">가짜 누리집 열기</Text.Body>
+              <Text.Body size="sm" className="color-secondary">
+                가짜 누리집 열기
+              </Text.Body>
             </MastheadDropdown>
           </MastheadContainer>
           <MastheadDescription>
