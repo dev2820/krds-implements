@@ -1,21 +1,33 @@
-import { cva, type VariantProps } from "class-variance-authority";
-import React from "react"
-import { cn } from "../../utils";
+import { cva, type VariantProps } from 'class-variance-authority';
 
+import React from 'react';
+
+import { cn } from '../../utils';
 
 export type DetailProps<T extends React.ElementType> = {
-  as?:T;
+  as?: T;
   children?: React.ReactNode;
-} & Omit<React.ComponentPropsWithoutRef<T>,"as"|"children">
-& VariantProps<typeof detailVariants>
+} & Omit<React.ComponentPropsWithoutRef<T>, 'as' | 'children'> &
+  VariantProps<typeof detailVariants>;
 
-function Detail<C extends React.ElementType>({ as, size, bold, className, children, ...props}:DetailProps<C>) {
+function Detail<C extends React.ElementType>({
+  as,
+  size,
+  bold,
+  className,
+  children,
+  ...props
+}: DetailProps<C>) {
   const Comp = as || 'span';
-  
-  return <Comp className={cn(detailVariants({ size, bold }),className)} {...props}>{children}</Comp>
+
+  return (
+    <Comp className={cn(detailVariants({ size, bold }), className)} {...props}>
+      {children}
+    </Comp>
+  );
 }
 
-const detailVariants = cva('leading-normal',{
+const detailVariants = cva('leading-normal color-text-detail', {
   variants: {
     size: {
       lg: 'text-17px',
@@ -24,13 +36,13 @@ const detailVariants = cva('leading-normal',{
     },
     bold: {
       true: 'font-bold',
-      false: 'font-normal'
-    }
+      false: 'font-normal',
+    },
   },
   defaultVariants: {
     size: 'md',
-    bold: false
-  }
-})
+    bold: false,
+  },
+});
 
-export { Detail }
+export { Detail };

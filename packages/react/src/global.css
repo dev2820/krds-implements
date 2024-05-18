@@ -1,6 +1,49 @@
-@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-gov.min.css");
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-gov.min.css');
 
 :root {
-  line-height:150%;
-  font-family: "Pretendard GOV Variable", "Pretendard GOV", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  line-height: 150%;
+  font-family:
+    'Pretendard GOV Variable',
+    'Pretendard GOV',
+    -apple-system,
+    BlinkMacSystemFont,
+    system-ui,
+    Roboto,
+    'Helvetica Neue',
+    'Segoe UI',
+    'Apple SD Gothic Neo',
+    'Noto Sans KR',
+    'Malgun Gothic',
+    'Apple Color Emoji',
+    'Segoe UI Emoji',
+    'Segoe UI Symbol',
+    sans-serif;
+}
+
+.korean-flag {
+  position: relative;
+}
+.korean-flag::before {
+  content: '';
+  position: absolute;
+  left: 0px;
+  width: 24px;
+  height: 16px;
+  background-image: url('./assets/svgs/korean_flag_medium.svg');
+  background-size: 24px 16px;
+}
+
+.goverment {
+  position: relative;
+}
+.goverment::before {
+  content: '';
+  position: absolute;
+  left: 0px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  background-image: url('./assets/svgs/goverment.svg');
+  background-size: 20px 20px;
 }
