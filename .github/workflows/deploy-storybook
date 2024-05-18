@@ -1,0 +1,51 @@
+name: Deploy storybook
+
+on:
+  pull_request:
+    paths:
+      - 'packages/react/**'
+      - '.github/workflows/deploy-storybook.yml'
+  push:
+    branches:
+      - main
+    paths:
+      - 'packages/react/**'
+      - '.github/workflows/deploy-storybook.yml'
+
+jobs:
+  deploy-storybook:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4.1.4
+      - uses: actions/setup-node@v4.0.2
+        with:
+          node-version: 20
+
+      - uses: pnpm/action-setup@v4.0.0
+        with:
+          version: 9.1.0
+
+      - uses: actions/cache@v4.0.2
+        id: pnpm-cache
+        with:
+          path: |
+            **/node_modules
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-
+
+      - if: steps.pnpm-cache.outputs.cache-hit != 'true'
+        id: install
+        run: pnpm install && echo "::set-output name=installed::true"
+
+      - if: steps.install.outputs.installed != 'true'
+        run: pnpm install
+
+      - run: pnpm build-storybook
+
+      - name: Deploy to GitHub Pages
+        if: github.event_name != 'pull_request'
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./storybook-static
