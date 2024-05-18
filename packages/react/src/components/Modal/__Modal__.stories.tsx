@@ -1,21 +1,21 @@
 import { Button } from '../Button';
 import {
-  Dialog,
-  DialogClose,
-  DialogTrigger,
-  DialogContent,
-  DialogHeader,
-  DialogFooter,
-  DialogTitle,
-  DialogDescription,
-} from './Dialog';
+  Modal,
+  ModalClose,
+  ModalTrigger,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalTitle,
+  ModalDescription,
+} from './Modal';
 
 /**
- * API Reference: https://ui.shadcn.com/docs/components/dialog
+ * API Reference: https://ui.shadcn.com/docs/componentsModal/
  */
 export default {
-  title: 'Components/Dialog',
-  component: Dialog,
+  title: 'Components/Modal',
+  component: Modal,
   parameters: {
     layout: 'centered',
   },
@@ -29,17 +29,17 @@ export const Default = {
   render: () => {
     return (
       <section className="p-4 w-480px">
-        <Dialog>
-          <DialogTrigger asChild>
+        <Modal>
+          <ModalTrigger asChild>
             <Button>Share</Button>
-          </DialogTrigger>
-          <DialogContent className="sm:max-w-md">
-            <DialogHeader>
-              <DialogTitle>Share link</DialogTitle>
-              <DialogDescription>
+          </ModalTrigger>
+          <ModalContent className="sm:max-w-md">
+            <ModalHeader>
+              <ModalTitle>Share link</ModalTitle>
+              <ModalDescription>
                 Anyone who has this link will be able to view this.
-              </DialogDescription>
-            </DialogHeader>
+              </ModalDescription>
+            </ModalHeader>
             <div className="flex items-center space-x-2">
               <div className="grid flex-1 gap-2">
                 <label htmlFor="link" className="sr-only">
@@ -55,15 +55,15 @@ export const Default = {
                 <span className="sr-only">Copy</span>
               </button>
             </div>
-            <DialogFooter className="sm:justify-end">
-              <DialogClose asChild>
+            <ModalFooter className="sm:justify-end">
+              <ModalClose asChild>
                 <Button type="button" size="md">
                   Close
                 </Button>
-              </DialogClose>
-            </DialogFooter>
-          </DialogContent>
-        </Dialog>
+              </ModalClose>
+            </ModalFooter>
+          </ModalContent>
+        </Modal>
       </section>
     );
   },

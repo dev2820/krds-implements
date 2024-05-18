@@ -4,7 +4,7 @@ import { z } from 'zod';
 import { useForm } from 'react-hook-form';
 
 import { Button } from '../Button';
-import { Input } from '../Input';
+import { InputText } from '../InputText';
 import {
   Form,
   FormControl,
@@ -38,6 +38,7 @@ export const Default = {
       }),
     });
 
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const form = useForm<z.infer<typeof formSchema>>({
       resolver: zodResolver(formSchema),
       defaultValues: {
@@ -63,7 +64,7 @@ export const Default = {
                 <FormItem>
                   <FormLabel>Username</FormLabel>
                   <FormControl>
-                    <Input placeholder="shadcn" {...field} />
+                    <InputText placeholder="shadcn" {...field} />
                   </FormControl>
                   <FormDescription>
                     This is your public display name.

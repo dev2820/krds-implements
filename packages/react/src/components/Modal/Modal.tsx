@@ -1,4 +1,4 @@
-import * as DialogPrimitive from '@radix-ui/react-dialog';
+import * as ModalPrimitive from '@radix-ui/react-dialog';
 
 import { forwardRef } from 'react';
 import type {
@@ -10,24 +10,24 @@ import type {
 
 import { cn } from '../../utils';
 
-export type DialogProps = ComponentProps<typeof Dialog>;
-const Dialog = DialogPrimitive.Root;
+export type ModalProps = ComponentProps<typeof Modal>;
+const Modal = ModalPrimitive.Root;
 
-export type DialogTriggerProps = ComponentProps<typeof DialogTrigger>;
-const DialogTrigger = DialogPrimitive.Trigger;
+export type ModalTriggerProps = ComponentProps<typeof ModalTrigger>;
+const ModalTrigger = ModalPrimitive.Trigger;
 
-export type DialogPortalProps = ComponentProps<typeof DialogPortal>;
-const DialogPortal = DialogPrimitive.Portal;
+export type ModalPortalProps = ComponentProps<typeof ModalPortal>;
+const ModalPortal = ModalPrimitive.Portal;
 
-export type DialogCloseProps = ComponentProps<typeof DialogClose>;
-const DialogClose = DialogPrimitive.Close;
+export type ModalCloseProps = ComponentProps<typeof ModalClose>;
+const ModalClose = ModalPrimitive.Close;
 
-export type DialogOverlayProps = ComponentProps<typeof DialogOverlay>;
-const DialogOverlay = forwardRef<
-  ElementRef<typeof DialogPrimitive.Overlay>,
-  ComponentPropsWithoutRef<typeof DialogPrimitive.Overlay>
+export type ModalOverlayProps = ComponentProps<typeof ModalOverlay>;
+const ModalOverlay = forwardRef<
+  ElementRef<typeof ModalPrimitive.Overlay>,
+  ComponentPropsWithoutRef<typeof ModalPrimitive.Overlay>
 >(({ className, ...props }, ref) => (
-  <DialogPrimitive.Overlay
+  <ModalPrimitive.Overlay
     ref={ref}
     className={cn(
       'fixed inset-0 z-50 bg-black/80  data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0',
@@ -36,16 +36,16 @@ const DialogOverlay = forwardRef<
     {...props}
   />
 ));
-DialogOverlay.displayName = DialogPrimitive.Overlay.displayName;
+ModalOverlay.displayName = ModalPrimitive.Overlay.displayName;
 
-export type DialogContentProps = ComponentProps<typeof DialogContent>;
-const DialogContent = forwardRef<
-  ElementRef<typeof DialogPrimitive.Content>,
-  ComponentPropsWithoutRef<typeof DialogPrimitive.Content>
+export type ModalContentProps = ComponentProps<typeof ModalContent>;
+const ModalContent = forwardRef<
+  ElementRef<typeof ModalPrimitive.Content>,
+  ComponentPropsWithoutRef<typeof ModalPrimitive.Content>
 >(({ className, children, ...props }, ref) => (
-  <DialogPortal>
-    <DialogOverlay />
-    <DialogPrimitive.Content
+  <ModalPortal>
+    <ModalOverlay />
+    <ModalPrimitive.Content
       ref={ref}
       className={cn(
         'fixed left-[50%] top-[50%] z-50 grid w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-4 border bg-background p-6 shadow-lg duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%] sm:rounded-lg',
@@ -54,17 +54,17 @@ const DialogContent = forwardRef<
       {...props}
     >
       {children}
-      <DialogPrimitive.Close className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">
+      <ModalPrimitive.Close className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">
         <i className="i-t-close-big text-6" />
         <span className="sr-only">Close</span>
-      </DialogPrimitive.Close>
-    </DialogPrimitive.Content>
-  </DialogPortal>
+      </ModalPrimitive.Close>
+    </ModalPrimitive.Content>
+  </ModalPortal>
 ));
-DialogContent.displayName = DialogPrimitive.Content.displayName;
+ModalContent.displayName = ModalPrimitive.Content.displayName;
 
-export type DialogHeaderProps = ComponentProps<typeof DialogHeader>;
-const DialogHeader = ({
+export type ModalHeaderProps = ComponentProps<typeof ModalHeader>;
+const ModalHeader = ({
   className,
   ...props
 }: HTMLAttributes<HTMLDivElement>) => (
@@ -76,10 +76,10 @@ const DialogHeader = ({
     {...props}
   />
 );
-DialogHeader.displayName = 'DialogHeader';
+ModalHeader.displayName = 'ModalHeader';
 
-export type DialogFooterProps = ComponentProps<typeof DialogFooter>;
-const DialogFooter = ({
+export type ModalFooterProps = ComponentProps<typeof ModalFooter>;
+const ModalFooter = ({
   className,
   ...props
 }: HTMLAttributes<HTMLDivElement>) => (
@@ -91,14 +91,14 @@ const DialogFooter = ({
     {...props}
   />
 );
-DialogFooter.displayName = 'DialogFooter';
+ModalFooter.displayName = 'ModalFooter';
 
-export type DialogTitleProps = ComponentProps<typeof DialogTitle>;
-const DialogTitle = forwardRef<
-  ElementRef<typeof DialogPrimitive.Title>,
-  ComponentPropsWithoutRef<typeof DialogPrimitive.Title>
+export type ModalTitleProps = ComponentProps<typeof ModalTitle>;
+const ModalTitle = forwardRef<
+  ElementRef<typeof ModalPrimitive.Title>,
+  ComponentPropsWithoutRef<typeof ModalPrimitive.Title>
 >(({ className, ...props }, ref) => (
-  <DialogPrimitive.Title
+  <ModalPrimitive.Title
     ref={ref}
     className={cn(
       'text-lg font-semibold leading-none tracking-tight',
@@ -107,30 +107,30 @@ const DialogTitle = forwardRef<
     {...props}
   />
 ));
-DialogTitle.displayName = DialogPrimitive.Title.displayName;
+ModalTitle.displayName = ModalPrimitive.Title.displayName;
 
-export type DialogDescriptionProps = ComponentProps<typeof DialogDescription>;
-const DialogDescription = forwardRef<
-  ElementRef<typeof DialogPrimitive.Description>,
-  ComponentPropsWithoutRef<typeof DialogPrimitive.Description>
+export type ModalDescriptionProps = ComponentProps<typeof ModalDescription>;
+const ModalDescription = forwardRef<
+  ElementRef<typeof ModalPrimitive.Description>,
+  ComponentPropsWithoutRef<typeof ModalPrimitive.Description>
 >(({ className, ...props }, ref) => (
-  <DialogPrimitive.Description
+  <ModalPrimitive.Description
     ref={ref}
     className={cn('text-sm text-muted-foreground', className)}
     {...props}
   />
 ));
-DialogDescription.displayName = DialogPrimitive.Description.displayName;
+ModalDescription.displayName = ModalPrimitive.Description.displayName;
 
 export {
-  Dialog,
-  DialogPortal,
-  DialogOverlay,
-  DialogClose,
-  DialogTrigger,
-  DialogContent,
-  DialogHeader,
-  DialogFooter,
-  DialogTitle,
-  DialogDescription,
+  Modal,
+  ModalPortal,
+  ModalOverlay,
+  ModalClose,
+  ModalTrigger,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalTitle,
+  ModalDescription,
 };
