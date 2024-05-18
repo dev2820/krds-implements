@@ -27,7 +27,7 @@ function Detail<C extends React.ElementType>({
   );
 }
 
-const detailVariants = cva('leading-normal color-text-detail', {
+const detailVariants = cva('leading-normal', {
   variants: {
     size: {
       lg: 'text-17px',

@@ -9,6 +9,7 @@ import type {
 } from 'react';
 
 import { cn } from '../../utils';
+import { Text } from '../Text';
 
 export type AccordionProps = ComponentProps<typeof Accordion>;
 const Accordion = AccordionPrimitive.Root;
@@ -21,7 +22,7 @@ const AccordionItem = forwardRef<
   <AccordionPrimitive.Item
     ref={ref}
     className={cn(
-      'border-b [&[data-disabled]]:cursor-not-allowed [&[data-disabled]]:opacity-40',
+      'first:border-t border-b border-border [&[data-disabled]]:cursor-not-allowed [&[data-disabled]]:color-text-disabled',
       className,
     )}
     {...props}
@@ -38,12 +39,14 @@ const AccordionTrigger = forwardRef<
     <AccordionPrimitive.Trigger
       ref={ref}
       className={cn(
-        'flex flex-1 items-center justify-between py-4 font-normal transition-all hover:underline [&[data-state=open]>svg]:rotate-180 [&[data-disabled]]:cursor-not-allowed [&[data-disabled]]:hover:no-underline',
+        'flex w-full gap-5 flex-1 items-start text-start justify-between overflow-hidden py-7 transition-all hover:underline [&[data-state=open]>svg]:rotate-180 [&[data-disabled]]:cursor-not-allowed [&[data-disabled]]:hover:no-underline',
         className,
       )}
       {...props}
     >
-      {children}
+      <Text.Body size="lg" bold className="flex-1 text-pretty">
+        {children}
+      </Text.Body>
       <Icon.ChevronDown
         size={16}
         className="shrink-0 transition-transform duration-200"
@@ -63,7 +66,7 @@ const AccordionContent = forwardRef<
     className="overflow-hidden text-sm transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down"
     {...props}
   >
-    <div className={cn('pb-4 pt-0', className)}>{children}</div>
+    <div className={cn('pb-7 pt-0', className)}>{children}</div>
   </AccordionPrimitive.Content>
 ));
 

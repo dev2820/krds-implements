@@ -35,7 +35,10 @@ const Root = forwardRef<HTMLDivElement, ComponentPropsWithoutRef<'div'>>(
       <Provider value={defaultValue}>
         <div
           role="banner"
-          className={cn('bg-background-2', className)}
+          className={cn(
+            'bg-background-2 flex flex-col items-center',
+            className,
+          )}
           ref={ref}
           {...props}
         >
@@ -53,7 +56,7 @@ const Container = forwardRef<HTMLDivElement, ComponentPropsWithoutRef<'div'>>(
 
     return (
       <div
-        className={cn('min-h-8', className)}
+        className={cn('min-h-8 max-w-desktop w-full', className)}
         data-orientation={'vertical'}
         data-state={context.open ? 'open' : 'close'}
         aria-expanded={context.open ? 'true' : 'false'}
@@ -95,7 +98,10 @@ const Dropdown = forwardRef<
 });
 
 const descriptionVariant = cva(
-  'overflow-hidden border-border-secondary transition-all duration-300',
+  [
+    'overflow-hidden border-border-secondary transition-all duration-300 w-full flex flex-col items-center',
+    'before:content-[""] before:w-full before:flex before:border-t-1 before:border-border-secondary',
+  ],
   {
     variants: {
       open: {
@@ -122,7 +128,6 @@ const Description = forwardRef<HTMLDListElement, ComponentProps<'dl'>>(
         ref={ref}
         {...props}
       >
-        <hr className="border-t border-border-secondary mb-4" />
         {children}
       </dl>
     );
@@ -132,14 +137,24 @@ const Description = forwardRef<HTMLDListElement, ComponentProps<'dl'>>(
 export type DescriptionTitleProps = ComponentProps<'dt'>;
 const DescriptionTitle = forwardRef<HTMLElement, ComponentProps<'dt'>>(
   ({ className, ...props }, ref) => {
-    return <dt className={cn('mb-4', className)} ref={ref} {...props} />;
+    return (
+      <dt
+        className={cn('mt-7 mb-5 max-w-desktop w-full', className)}
+        ref={ref}
+        {...props}
+      />
+    );
   },
 );
 export type DescriptionContentProps = ComponentProps<'dd'>;
 const DescriptionContent = forwardRef<HTMLElement, ComponentProps<'dd'>>(
   ({ children, className, ...props }, ref) => {
     return (
-      <dd className={cn('mb-7 ml-28px', className)} ref={ref} {...props}>
+      <dd
+        className={cn('mb-7 pl-28px max-w-desktop w-full', className)}
+        ref={ref}
+        {...props}
+      >
         {children}
       </dd>
     );

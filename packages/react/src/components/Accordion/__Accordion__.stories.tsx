@@ -68,6 +68,15 @@ export const Default = {
               prefer.
             </AccordionContent>
           </AccordionItem>
+          <AccordionItem value="item-4">
+            <AccordionTrigger>
+              Is it long enough loooooooooooong to break new line?
+            </AccordionTrigger>
+            <AccordionContent>
+              Yes. It&apos;s animated by default, but you can disable it if you
+              prefer.
+            </AccordionContent>
+          </AccordionItem>
         </Accordion>
       </div>
     );

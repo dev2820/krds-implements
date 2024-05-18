@@ -59,7 +59,7 @@
 - [ ] disclosure
 - [ ] modal
 - [ ] badge
-- [ ] accordion
+- [x] accordion
 - [ ] image
 - [ ] carousel
 - [ ] tab

@@ -27,7 +27,7 @@ function Body<C extends React.ElementType>({
   );
 }
 
-const bodyVariants = cva('leading-normal color-text-body', {
+const bodyVariants = cva('leading-normal', {
   variants: {
     size: {
       lg: 'text-19px',
