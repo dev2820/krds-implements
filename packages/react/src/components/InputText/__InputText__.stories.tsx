@@ -1,4 +1,4 @@
-import { Input, type InputProps } from './Input';
+import { InputText, type InputTextProps } from './InputText';
 
 const sizes = ['xs', 'sm', 'md', 'lg'] as const;
 
@@ -6,8 +6,8 @@ const sizes = ['xs', 'sm', 'md', 'lg'] as const;
  * API Reference: https://ui.shadcn.com/docs/components/input
  */
 export default {
-  title: 'Components/Input',
-  component: Input,
+  title: 'Components/InputText',
+  component: InputText,
   parameters: {
     layout: 'centered',
   },
@@ -30,10 +30,10 @@ export default {
 
 export const Default = {
   args: {},
-  render: (props: InputProps) => {
+  render: (props: InputTextProps) => {
     return (
       <section className="p-4 w-480px">
-        <Input type="email" placeholder="Email" {...props} />
+        <InputText type="email" placeholder="Email" {...props} />
       </section>
     );
   },
@@ -41,11 +41,11 @@ export const Default = {
 
 export const SizeVariant = {
   args: {},
-  render: (props: InputProps) => {
+  render: (props: InputTextProps) => {
     return (
       <section className="p-4 w-480px flex flex-col gap-4">
         {sizes.map(size => (
-          <Input
+          <InputText
             type="email"
             placeholder="Email"
             sizeVariant={size}
@@ -58,34 +58,12 @@ export const SizeVariant = {
   },
 };
 
-export const FileInput = {
-  args: {},
-  render: (props: InputProps) => {
-    return (
-      <section className="p-4 w-480px">
-        <Input type="file" {...props} />
-      </section>
-    );
-  },
-};
-
 export const PasswordInput = {
   args: {},
-  render: (props: InputProps) => {
+  render: (props: InputTextProps) => {
     return (
       <section className="p-4 w-480px">
-        <Input type="password" {...props} />
-      </section>
-    );
-  },
-};
-
-export const DateInput = {
-  args: {},
-  render: (props: InputProps) => {
-    return (
-      <section className="p-4 w-480px">
-        <Input type="date" {...props} />
+        <InputText type="password" {...props} />
       </section>
     );
   },
