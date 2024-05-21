@@ -14,7 +14,12 @@
     /* Linting */
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+
+    "types": [
+      "vite/client",
+      "vitest/globals",
+    ]
   },
   "include": ["src"],
   "extends": "@krds/tsconfig/base.json"

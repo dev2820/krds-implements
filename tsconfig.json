@@ -34,9 +34,11 @@
     "forceConsistentCasingInFileNames": true,
     "inlineSources": false,
     "preserveWatchOutput": true,
-    "types": ["vite/client", "vitest/globals", "vitest/jsdom"]
+    "types": [
+      "vite/client"
+    ]
   },
-  "include": ["packages", "vitest.setup.ts"],
+  "include": ["packages"],
   "exclude": ["node_modules"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
