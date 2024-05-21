@@ -16,7 +16,12 @@
     "preserveWatchOutput": true,
     "skipLibCheck": true,
     "strict": true,
-    "types": ["vite/client", "vitest/globals", "vitest/jsdom"]
+    "types": [
+      "vite/client",
+      "vitest/globals",
+      "vitest/jsdom",
+      "@testing-library/jest-dom"
+    ]
   },
   "exclude": ["node_modules"]
 }

@@ -1,7 +1,8 @@
+import { IdentifierLogo } from '.';
 import MIDark from '../../assets/pngs/MI-dark.png';
 import MI from '../../assets/pngs/MI.png';
 import { Text } from '../Text';
-import { Identifier, type IdentifierProps } from './Identifier';
+import { Identifier, type IdentifierProps } from './index';
 
 export default {
   title: 'Components/Identifier',
@@ -11,20 +12,20 @@ export default {
   },
   tags: ['autodocs'],
   argTypes: {
-    dark: {
+    isDark: {
       control: {
         type: 'boolean',
       },
     },
-    round: {
+    isRound: {
       control: {
         type: 'boolean',
       },
     },
   },
   args: {
-    dark: false,
-    round: false,
+    isDark: false,
+    isRound: false,
   },
 };
 
@@ -32,49 +33,43 @@ export const Default = {
   args: {},
   render: (props: IdentifierProps) => {
     return (
-      <div className="p-4 w-800px">
-        <Identifier {...props}>
-          <img src={MI} className="h-6" />
-          <img src={MI} className="h-6" />
-          <Text.Body size="sm">
-            이 누리집은 김치냉장고 산하기관 누리집입니다.
-          </Text.Body>
-        </Identifier>
-      </div>
+      <Identifier {...props}>
+        <IdentifierLogo url={{ light: MI, dark: MIDark }} />
+        <IdentifierLogo url={{ light: MI, dark: MIDark }} />
+        <Text.Body size="sm">
+          이 누리집은 김치냉장고 산하기관 누리집입니다.
+        </Text.Body>
+      </Identifier>
     );
   },
 };
 
-export const Round = {
+export const IsRound = {
   args: {
-    round: true,
+    isRound: true,
   },
   render: (props: IdentifierProps) => {
     return (
-      <div className="p-4 w-800px">
-        <Identifier {...props}>
-          <img src={MI} className="h-6" />
-          <img src={MI} className="h-6" />
-          <div>이 누리집은 김치냉장고 산하기관 누리집입니다.</div>
-        </Identifier>
-      </div>
+      <Identifier {...props}>
+        <IdentifierLogo url={MI} />
+        <IdentifierLogo url={MI} />
+        <div>이 누리집은 김치냉장고 산하기관 누리집입니다.</div>
+      </Identifier>
     );
   },
 };
 
-export const Dark = {
+export const IsDark = {
   args: {
-    dark: true,
+    isDark: true,
   },
   render: (props: IdentifierProps) => {
     return (
-      <div className="p-4 w-800px">
-        <Identifier {...props}>
-          <img src={MIDark} className="h-6" />
-          <img src={MIDark} className="h-6" />
-          <div>이 누리집은 김치냉장고 산하기관 누리집입니다.</div>
-        </Identifier>
-      </div>
+      <Identifier {...props}>
+        <IdentifierLogo url={{ light: MI, dark: MIDark }} />
+        <IdentifierLogo url={{ light: MI, dark: MIDark }} />
+        <div>이 누리집은 김치냉장고 산하기관 누리집입니다.</div>
+      </Identifier>
     );
   },
 };
