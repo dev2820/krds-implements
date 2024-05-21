@@ -1,3 +1,4 @@
+/// <reference types="vitest"/>
 import path from 'path';
 import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
@@ -13,5 +14,8 @@ export default defineConfig({
   },
   resolve: {
     alias: { '@': path.resolve('src/') },
+  },
+  test: {
+    environment: 'happy-dom',
   },
 });
