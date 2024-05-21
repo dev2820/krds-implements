@@ -34,7 +34,7 @@
     "forceConsistentCasingInFileNames": true,
     "inlineSources": false,
     "preserveWatchOutput": true,
-    "types": ["vite/client"]
+    "types": ["vite/client", "vitest/globals", "vitest/jsdom"]
   },
   "include": ["packages", "vitest.setup.ts"],
   "exclude": ["node_modules"],

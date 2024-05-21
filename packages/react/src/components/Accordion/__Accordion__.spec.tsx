@@ -1,1 +1,3 @@
-// test will be here...
+describe('accordion', () => {
+  it.skip('maybe some tests occured here (not now)');
+});
