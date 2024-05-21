@@ -6,7 +6,7 @@ import {
   forwardRef,
   ComponentPropsWithoutRef,
 } from 'react';
-
+import { Text } from '../Text';
 import { createContext } from '../../hooks/create-context';
 import { cn } from '../../utils';
 
@@ -56,7 +56,9 @@ const Root = forwardRef<
       className={cn(identifierVariants({ isDark, isRound }), className)}
       ref={ref}
       {...props}
+      aria-labelledby='identifier'
     >
+      <h3 id="identifier" className='sr-only'>identifier</h3>
       <Provider value={defaultValue}>
         <div className="max-w-desktop w-full h-full flex flex-row items-center gap-3">
           {children}
@@ -84,10 +86,25 @@ const Logo = forwardRef<HTMLImageElement, LogoProps>(
       : isDark
         ? url.dark ?? url.light
         : url.light;
-
     return (
-      <img src={logoUrl} alt={alt} ref={ref} className={cn('h-6', className)} />
+      <img src={logoUrl} alt={alt} ref={ref} className={cn('h-6',`${isDark ? 'dark':'none-dark'}`, className)} />
     );
   },
 );
-export { Root, Logo };
+
+Logo.displayName = "IdentifierLogo"
+
+export type GuideProps = ComponentProps<typeof Text.Body>;
+
+const Guide = forwardRef<HTMLSpanElement, GuideProps>(
+  ({ className, ...props }, ref) => {
+    
+    return (
+      <Text.Body as="span" size="sm" className={className} ref={ref} {...props}/>
+    );
+  },
+);
+
+Guide.displayName = "IdentifierGuide"
+
+export { Root, Logo,Guide };

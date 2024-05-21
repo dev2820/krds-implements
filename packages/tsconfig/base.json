@@ -15,13 +15,7 @@
     "noUnusedParameters": false,
     "preserveWatchOutput": true,
     "skipLibCheck": true,
-    "strict": true,
-    "types": [
-      "vite/client",
-      "vitest/globals",
-      "vitest/jsdom",
-      "@testing-library/jest-dom"
-    ]
+    "strict": true
   },
   "exclude": ["node_modules"]
 }

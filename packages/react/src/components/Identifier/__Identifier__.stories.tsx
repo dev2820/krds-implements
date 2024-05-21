@@ -1,7 +1,6 @@
-import { IdentifierLogo } from '.';
+import { IdentifierGuide, IdentifierLogo } from '.';
 import MIDark from '../../assets/pngs/MI-dark.png';
 import MI from '../../assets/pngs/MI.png';
-import { Text } from '../Text';
 import { Identifier, type IdentifierProps } from './index';
 
 export default {
@@ -36,9 +35,9 @@ export const Default = {
       <Identifier {...props}>
         <IdentifierLogo url={{ light: MI, dark: MIDark }} />
         <IdentifierLogo url={{ light: MI, dark: MIDark }} />
-        <Text.Body size="sm">
+        <IdentifierGuide>
           이 누리집은 김치냉장고 산하기관 누리집입니다.
-        </Text.Body>
+        </IdentifierGuide>
       </Identifier>
     );
   },
@@ -53,7 +52,9 @@ export const IsRound = {
       <Identifier {...props}>
         <IdentifierLogo url={MI} />
         <IdentifierLogo url={MI} />
-        <div>이 누리집은 김치냉장고 산하기관 누리집입니다.</div>
+        <IdentifierGuide>
+          이 누리집은 김치냉장고 산하기관 누리집입니다.
+        </IdentifierGuide>
       </Identifier>
     );
   },
@@ -68,7 +69,9 @@ export const IsDark = {
       <Identifier {...props}>
         <IdentifierLogo url={{ light: MI, dark: MIDark }} />
         <IdentifierLogo url={{ light: MI, dark: MIDark }} />
-        <div>이 누리집은 김치냉장고 산하기관 누리집입니다.</div>
+        <IdentifierGuide>
+          이 누리집은 김치냉장고 산하기관 누리집입니다.
+        </IdentifierGuide>
       </Identifier>
     );
   },
