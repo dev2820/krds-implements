@@ -54,6 +54,7 @@ const Root = forwardRef<
       ref={ref}
       role={isProgressType ? 'progressbar' : 'status'}
       aria-busy={isSpinType ? true : undefined}
+      aria-live="polite"
       aria-valuemin={isProgressType ? 0 : undefined}
       aria-valuemax={isProgressType ? 100 : undefined}
       aria-valuenow={isProgressType ? progress : undefined}
