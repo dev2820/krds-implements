@@ -1,3 +1,5 @@
+import { cva, VariantProps } from 'class-variance-authority';
+
 import {
   ComponentPropsWithoutRef,
   forwardRef,
@@ -6,17 +8,36 @@ import {
 
 import { cn } from '../../utils';
 
+const SIZE_MAP: Record<string, number> = {
+  lg: 48,
+  md: 32,
+  sm: 20,
+};
+
+const spinnerVariants = cva('relative', {
+  variants: {
+    size: {
+      lg: 'size-48px',
+      md: 'size-32px',
+      sm: 'size-20px',
+    },
+  },
+  defaultVariants: {
+    size: 'md',
+  },
+});
 export type RootProps = ComponentProps<typeof Root>;
 const Root = forwardRef<
   HTMLDivElement,
-  ComponentPropsWithoutRef<'div'> & {
-    type?: 'spin' | 'progress';
-    progress?: number;
-  }
->(({ type = 'spin', progress, ...props }, ref) => {
+  ComponentPropsWithoutRef<'div'> &
+    VariantProps<typeof spinnerVariants> & {
+      type?: 'spin' | 'progress';
+      progress?: number;
+    }
+>(({ type = 'spin', progress, size, className, ...props }, ref) => {
   const isProgressType = type === 'progress';
   const isSpinType = type === 'spin';
-
+  size = size ?? 'md';
   let identifierProps: { spin: boolean; progress: number } = {
     spin: false,
     progress: progress ?? 0,
@@ -29,25 +50,35 @@ const Root = forwardRef<
   }
   return (
     <div
-      className={cn('relative w-32px h-32px')}
+      className={cn(spinnerVariants({ size }), className)}
       ref={ref}
+      role={isProgressType ? 'progressbar' : undefined}
       aria-busy={isSpinType ? true : undefined}
-      aria-role={isProgressType ? 'progressbar' : undefined}
       aria-valuemin={isProgressType ? 0 : undefined}
       aria-valuemax={isProgressType ? 100 : undefined}
       aria-valuenow={isProgressType ? progress : undefined}
       {...props}
     >
-      <Track />
-      <Identifier size={32} {...identifierProps} />
+      <Track size={SIZE_MAP[size]} data-testid="track" />
+      <Identifier
+        size={SIZE_MAP[size]}
+        data-testid="identifier"
+        {...identifierProps}
+      />
     </div>
   );
 });
 
 export type TrackProps = ComponentProps<typeof Track>;
-function Track({ size = 32 }: { size?: number }) {
+function Track({
+  size = 32,
+  className,
+  ...props
+}: ComponentProps<'span'> & { size?: number }) {
+  const strokeWidth = size === 48 ? 4 : size === 32 ? 3 : 2;
+
   return (
-    <span className="absolute">
+    <span className={cn('absolute color-grayscale-20', className)} {...props}>
       <svg
         width={size}
         height={size}
@@ -57,9 +88,9 @@ function Track({ size = 32 }: { size?: number }) {
         <circle
           cx={size / 2}
           cy={size / 2}
-          r={size / 2 - 2}
-          stroke="#e6e6e6"
-          strokeWidth="4"
+          r={size / 2 - strokeWidth / 2}
+          stroke="currentColor"
+          strokeWidth={strokeWidth}
           fill="none"
         />
       </svg>
@@ -72,12 +103,14 @@ function Identifier({
   spin = false,
   size = 32,
   progress = 0,
-}: {
+  className,
+  ...props
+}: ComponentProps<'span'> & {
   spin?: boolean;
   size?: number;
   progress?: number;
 }) {
-  const strokeWidth = 4;
+  const strokeWidth = size === 48 ? 4 : size === 32 ? 3 : 2;
   const outerRadius = size / 2;
   const innerRadius = (size - strokeWidth) / 2;
   const circumference = 2 * Math.PI * innerRadius;
@@ -87,9 +120,14 @@ function Identifier({
 
   return (
     <span
-      className={cn('absolute color-primary transition-stroke', {
-        'animate-spin': spin,
-      })}
+      className={cn(
+        'absolute color-primary transition-stroke',
+        {
+          'animate-spin': spin,
+        },
+        className,
+      )}
+      {...props}
     >
       <svg
         width={size}
