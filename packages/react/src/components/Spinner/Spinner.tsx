@@ -61,10 +61,9 @@ const Root = forwardRef<
       {...props}
     >
       <span className='sr-only'>loading</span>
-      <Track size={SIZE_MAP[size]} data-testid="track" />
+      <Track size={SIZE_MAP[size]} />
       <Identifier
         size={SIZE_MAP[size]}
-        data-testid="identifier"
         {...identifierProps}
       />
     </div>
