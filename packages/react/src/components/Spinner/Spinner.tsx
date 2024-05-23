@@ -13,11 +13,33 @@ const Root = forwardRef<
     type?: 'spin' | 'progress';
     progress?: number;
   }
->(({ type = 'spin', progress = 0, ...props }, ref) => {
+>(({ type = 'spin', progress, ...props }, ref) => {
+  const isProgressType = type === 'progress';
+  const isSpinType = type === 'spin';
+
+  let identifierProps: { spin: boolean; progress: number } = {
+    spin: false,
+    progress: progress ?? 0,
+  };
+  if (isSpinType) {
+    identifierProps = {
+      spin: true,
+      progress: progress ?? 25,
+    };
+  }
   return (
-    <div className={cn('relative w-32px h-32px')} ref={ref} {...props}>
+    <div
+      className={cn('relative w-32px h-32px')}
+      ref={ref}
+      aria-busy={isSpinType ? true : undefined}
+      aria-role={isProgressType ? 'progressbar' : undefined}
+      aria-valuemin={isProgressType ? 0 : undefined}
+      aria-valuemax={isProgressType ? 100 : undefined}
+      aria-valuenow={isProgressType ? progress : undefined}
+      {...props}
+    >
       <Track />
-      <Identifier size={32} progress={progress} spin />
+      <Identifier size={32} {...identifierProps} />
     </div>
   );
 });
@@ -64,7 +86,11 @@ function Identifier({
   const strokeDashoffset = `${circumference / 4}`;
 
   return (
-    <span className={cn('absolute', { 'animate-spin': spin })}>
+    <span
+      className={cn('absolute color-primary transition-stroke', {
+        'animate-spin': spin,
+      })}
+    >
       <svg
         width={size}
         height={size}
@@ -75,7 +101,7 @@ function Identifier({
           cx={outerRadius}
           cy={outerRadius}
           r={innerRadius}
-          stroke="#4caf50"
+          stroke="currentColor"
           strokeWidth={strokeWidth}
           fill="none"
           strokeDasharray={strokeDasharray}

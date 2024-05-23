@@ -21,9 +21,14 @@ export default {
       description: '타입 (spin/progress 타입)',
       control: { type: 'select' },
     },
+    progress: {
+      description: 'spinner 트랙의 채워진 정도 (spin타입이면 기본 25)',
+      control: { type: 'number' },
+    },
   },
   args: {
     type: 'spin',
+    progress: 25,
   },
 };
 
@@ -34,13 +39,27 @@ export const Default = {
   },
 };
 
+export const TypeSpin = {
+  args: {},
+  render: () => {
+    return <Spinner type="spin" />;
+  },
+};
+
+export const TypeProgress = {
+  args: {},
+  render: () => {
+    return <Spinner type="progress" progress={50} />;
+  },
+};
+
 export const Progress = {
   args: {},
   render: () => {
     return (
       <div className="flex flex-row gap-4">
         {[0, 25, 50, 75, 100].map(progress => (
-          <Spinner progress={progress} />
+          <Spinner type="progress" progress={progress} />
         ))}
       </div>
     );
