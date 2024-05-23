@@ -23,7 +23,7 @@ export default {
     size: {
       options:sizes,
       description: 'spinner의 크기',
-      control: { type: 'select'}
+      control: { type: 'select' }
     }
   },
   args: {
