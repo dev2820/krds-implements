@@ -23,6 +23,11 @@
 4. PR을 리뷰
    자세한 내용은 CONTRIBUTING 문서를 참고해주세요. (작성 예정)
 
+> [!CAUTION] 
+> `pnpm utils build`로 유틸 라이브러리를 먼저 빌드해주세요.
+> `pnpm react storybook`로 스토리북을 열 수 있습니다.
+> `pnpm react test`로 테스트를 수행할 수 있습니다.
+
 ## Todo (추가,수정될 수 있음)
 
 ### Story
@@ -80,7 +85,7 @@
 #### 피드백
 
 - [ ] step indicator
-- [ ] spinner
+- [ ] spinner (@dev2820)
 
 #### 도움
 
