@@ -52,13 +52,14 @@ const Root = forwardRef<
     <div
       className={cn(spinnerVariants({ size }), className)}
       ref={ref}
-      role={isProgressType ? 'progressbar' : undefined}
+      role={isProgressType ? 'progressbar' : 'status'}
       aria-busy={isSpinType ? true : undefined}
       aria-valuemin={isProgressType ? 0 : undefined}
       aria-valuemax={isProgressType ? 100 : undefined}
       aria-valuenow={isProgressType ? progress : undefined}
       {...props}
     >
+      <span className='sr-only'>loading</span>
       <Track size={SIZE_MAP[size]} data-testid="track" />
       <Identifier
         size={SIZE_MAP[size]}
@@ -88,7 +89,7 @@ function Track({
         <circle
           cx={size / 2}
           cy={size / 2}
-          r={size / 2 - strokeWidth / 2}
+          r={(size - strokeWidth)/2}
           stroke="currentColor"
           strokeWidth={strokeWidth}
           fill="none"
@@ -134,7 +135,7 @@ function Identifier({
         height={size}
         viewBox={`0 0 ${size} ${size}`}
         xmlns="http://www.w3.org/2000/svg"
-      >
+        >
         <circle
           cx={outerRadius}
           cy={outerRadius}

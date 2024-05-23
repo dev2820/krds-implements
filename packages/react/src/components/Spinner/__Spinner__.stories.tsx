@@ -25,10 +25,16 @@ export default {
       description: 'spinner 트랙의 채워진 정도 (spin타입이면 기본 25)',
       control: { type: 'number' },
     },
+    size: {
+      options:sizes,
+      description: 'spinner의 크기',
+      control: { type: 'select'}
+    }
   },
   args: {
     type: 'spin',
     progress: 25,
+    size: 'md'
   },
 };
 
