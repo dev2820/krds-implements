@@ -42,8 +42,7 @@ jobs:
       - if: steps.install.outputs.installed != 'true'
         run: pnpm install
 
-      - run: pnpm utils build
-      - run: pnpm react build-storybook
+      - run: pnpm build-storybook
 
       - name: Deploy to GitHub Pages
         if: github.event_name != 'pull_request'
