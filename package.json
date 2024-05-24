@@ -4,13 +4,12 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "pnpm -F dev",
-    "build": "pnpm -F build",
+    "prestorybook": "pnpm --filter utils build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "pnpm -F preview preview",
-    "test": "pnpm -F test",
-    "storybook": "pnpm --filter storybook",
-    "build-storybook": "pnpm -F build-storybook",
+    "react:test": "pnpm --filter react test",
+    "utils:test": "pnpm --filter utils test",
+    "storybook": "pnpm --filter react run storybook",
+    "build-storybook": "pnpm --filter react run build-storybook",
     "utils": "pnpm --filter utils",
     "react": "pnpm --filter react"
   },
