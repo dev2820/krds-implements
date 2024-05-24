@@ -25,6 +25,7 @@
 
 > [!CAUTION] 
 > `pnpm storybook`로 스토리북을 열 수 있습니다.
+>
 > `pnpm react test` 혹은 `pnpm react:test`로 테스트를 수행할 수 있습니다.
 
 ## Todo (추가,수정될 수 있음)
