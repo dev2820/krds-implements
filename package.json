@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "prestorybook": "pnpm --filter utils build",
+    "prebuild-storybook": "pnpm --filter utils build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "react:test": "pnpm --filter react test",
     "utils:test": "pnpm --filter utils test",
