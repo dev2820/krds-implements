@@ -1,1 +1,0 @@
-import{j as r}from"./jsx-runtime-CexXSJP5.js";import"./index-BP8_t0zE.js";const t={parameters:{controls:{matchers:{color:/(background|color)$/i,date:/Date$/i}}},decorators:[o=>r.jsx("div",{className:"",children:r.jsx(o,{})})]};export{t as default};
