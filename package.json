@@ -11,8 +11,8 @@
     "test": "pnpm -F test",
     "storybook": "pnpm --filter storybook",
     "build-storybook": "pnpm -F build-storybook",
-    "utils": "pnpm --filter utils",
-    "react": "pnpm --filter react"
+    "utils": "pnpm --filter @krds/utils",
+    "react": "pnpm --filter @krds/react"
   },
   "dependencies": {
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
