@@ -22,6 +22,7 @@ export default defineConfig({
         hover: TOKEN.colors.primary[60],
         active: TOKEN.colors.primary[70],
         disabled: TOKEN.colors.grayscale[20],
+        foreground: TOKEN.colors.grayscale[0]
       },
       secondary: {
         ...TOKEN.colors.secondary,
@@ -62,7 +63,7 @@ export default defineConfig({
         1: TOKEN.colors.grayscale[5],
         2: TOKEN.colors.secondary[5],
       },
-      disabled: TOKEN.colors.grayscale[20],
+      disabled: TOKEN.colors.grayscale[30],
       border: {
         DEFAULT: TOKEN.colors.grayscale[40],
         input: TOKEN.colors.grayscale[60],
@@ -76,7 +77,7 @@ export default defineConfig({
         secondary: TOKEN.colors.secondary[10],
       },
       text: {
-        disabled: TOKEN.colors.grayscale[50],
+        disabled: TOKEN.colors.grayscale[60],
         body: TOKEN.colors.grayscale[90],
         title: TOKEN.colors.grayscale[90],
         detail: TOKEN.colors.grayscale[70],
