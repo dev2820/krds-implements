@@ -1,12 +1,9 @@
+import { Search } from 'lucide-react';
 import { Button, type ButtonProps } from './Button';
 
 const variants = ['primary', 'secondary', 'tertiary', 'text'] as const;
 const sizes = ['xl','lg', 'md', 'sm', 'xs'] as const;
 
-/**
- * API Reference: https://ui.shadcn.com/docs/components/button <br/>
- * whiteAlpha colorScheme는 dark모드에서 확인이 가능합니다.
- */
 export default {
   title: 'Components/Button',
   component: Button,
@@ -43,6 +40,58 @@ export const Default = {
     return (
       <section className="p-4 w-480px flex flex-row justify-center">
         <Button {...props}>Button</Button>
+      </section>
+    );
+  },
+};
+
+export const Size = {
+  args: {},
+  render: () => {
+    return (
+      <section className="p-4 w-480px flex flex-row justify-center gap-4">
+        {
+          sizes.map(size=><Button size={size}>Button</Button>)
+        }
+      </section>
+    );
+  },
+}
+
+export const Variant = {
+  args: {},
+  render: () => {
+    return (
+      <section className="p-4 w-480px flex flex-row justify-center gap-4">
+        {
+          variants.map(variant=><Button variant={variant}>Button</Button>)
+        }
+      </section>
+    );
+  },
+};
+
+export const Disabled = {
+  args: {},
+  render: () => {
+    return (
+      <section className="p-4 w-480px flex flex-row justify-center gap-4">
+        {
+          variants.map(variant=><Button variant={variant} disabled>Button</Button>)
+        }
+      </section>
+    );
+  },
+};
+
+export const WithIcon = {
+  args: {},
+  render: () => {
+    return (
+      <section className="p-4 w-480px flex flex-row justify-center gap-4">
+        <Button leftIcon={<Search size="24"/>}>Button</Button>
+        <Button rightIcon={<Search size="24"/>}>Button</Button>
+        <Button leftIcon={<Search size="24"/>} rightIcon={<Search size="24"/>}>Button</Button>
       </section>
     );
   },
