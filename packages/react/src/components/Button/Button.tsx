@@ -17,23 +17,44 @@ const buttonVariants = cva(
     variants: {
       variant: {
         primary: 'bg-primary-50 color-primary-foreground hover:bg-primary-hover active:bg-primary-active',
-        secondary: 'border bg-transparent',
-        tertiary: '',
-        text: 'underline-offset-4 hover:underline',
+        secondary: 'color-primary-60 border border-primary-50 disabled:border-grayscale-40 bg-primary-5 hover:bg-primary-10 active:bg-primary-20',
+        tertiary: 'color-secondary-90 border border-grayscale-90 disabled:border-grayscale-40 bg-grayscale-0 hover:bg-grayscale-5 active:bg-grayscale-10',
+        text: 'color-grayscale-90 bg-transparent hover:bg-secondary-5 active:bg-secondary-10 disabled:color-grayscale-50 disabled:bg-transparent px-1',
       },
       size: {
-        xl: ['h-16 px-7 rounded-4 text-lg',labelVariants({ size: 'lg'})],
-        lg: ['h-14 px-6 rounded-4 text-lg',labelVariants({ size: 'md'})],
-        md: ['h-12 px-5 rounded-4 text-sm',labelVariants({ size: 'md'})],
-        sm: ['h-10 px-4 rounded-3 text-xs',labelVariants({ size: 'sm'})],
-        xs: ['h-8 px-2.5 rounded-3 text-xs',labelVariants({ size: 'sm'})],
+        xl: ['h-16 px-7 rounded-4',labelVariants({ size: 'lg'})],
+        lg: ['h-14 px-6 rounded-4',labelVariants({ size: 'lg'})],
+        md: ['h-12 px-5 rounded-4',labelVariants({ size: 'md'})],
+        sm: ['h-10 px-4 rounded-3',labelVariants({ size: 'sm'})],
+        xs: ['h-8 px-2.5 rounded-3',labelVariants({ size: 'sm'})],
       },
     },
     compoundVariants: [
-      /**
-       * solid
-       */
-      
+      {
+        variant:'text',
+        size:'xl',
+        className: 'h-9 px-1'
+      },
+      {
+        variant:'text',
+        size:'lg',
+        className: 'h-9 px-1'
+      },
+      {
+        variant:'text',
+        size:'md',
+        className: 'h-8 px-1'
+      },
+      {
+        variant:'text',
+        size:'sm',
+        className: `h-7 px-1 ${labelVariants({ size:'md'})}`
+      },
+      {
+        variant:'text',
+        size:'xs',
+        className: 'h-6 px-1' 
+      }
     ],
     defaultVariants: {
       variant: 'primary',
