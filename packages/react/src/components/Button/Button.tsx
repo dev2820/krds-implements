@@ -79,6 +79,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       disabled,
       leftIcon,
       rightIcon,
+      type = "button",
       asChild = false,
       children,
       ...props
@@ -95,6 +96,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         )}
         disabled={disabled}
         ref={ref}
+        type={type}
         {...props}
       >
         {leftIcon}
