@@ -1,17 +1,17 @@
 import { Badge, type BadgeProps } from './Badge';
 
-const variants = ['subtle', 'solid', 'outline'] as const;
-const colorSchemes = [
+const types = ['subtle', 'solid', 'outline'] as const;
+const colors = [
   'primary',
-  'success',
-  'warning',
-  'error',
-  'info',
+  'secondary',
+  'tertiary',
+  'new',
+  'danger'
 ] as const;
+const variants = ['dot','count','text']
 
-/**
- * API Reference: https://ui.shadcn.com/docs/components/badge
- */
+type Color = (typeof colors)[number]
+
 export default {
   title: 'Components/Badge',
   component: Badge,
@@ -25,15 +25,21 @@ export default {
       description: 'badge 타입',
       control: { type: 'select' },
     },
-    colorScheme: {
-      options: colorSchemes,
-      description: 'badge 색상',
+    color: {
+      options: colors,
+      description: 'badge 색상 (secondary, tertiar, danger는 text 형태 한정)',
+      control: { type: 'select' },
+    },
+    type: {
+      options: types,
+      description: 'badge 타입 (text 형태 한정)',
       control: { type: 'select' },
     },
   },
   args: {
-    variant: 'subtle',
-    colorScheme: 'primary',
+    variant: 'text',
+    color: 'primary',
+    type: 'solid'
   },
 };
 
@@ -42,37 +48,61 @@ export const Default = {
   render: (props: BadgeProps) => {
     return (
       <section className="p-4 w-480px">
-        <Badge {...props}>Badge</Badge>
+        <Badge {...props}></Badge>
       </section>
     );
   },
 };
 
-export const Variant = {
+export const DotBadge = {
   args: {},
   render: () => {
     return (
       <section className="p-4 w-480px flex flex-row gap-4">
-        {variants.map(variant => (
-          <Badge variant={variant} key={variant}>
-            Badge
-          </Badge>
+        {['primary','new'].map(color => (
+          <Badge variant='dot' key={color} color={color as Color} />
         ))}
       </section>
     );
   },
 };
 
-export const ColorScheme = {
+export const CountBadge = {
   args: {},
   render: () => {
     return (
       <section className="p-4 w-480px flex flex-row gap-4">
-        {colorSchemes.map(colorScheme => (
-          <Badge colorScheme={colorScheme} key={colorScheme}>
-            Badge
-          </Badge>
+        {['primary','new'].map(color => (
+          <Badge variant='count' key={color} color={color as Color} count={3}/>
         ))}
+        {['primary','new'].map(color => (
+          <Badge variant='count' key={color} color={color as Color} count={999} isOverCount/>
+        ))}
+      </section>
+    );
+  },
+}
+
+export const TextBadge = {
+  args: {},
+  render: () => {
+    return (
+      <section className="p-4 w-480px flex flex-row gap-4">
+        <div className="flex flex-col gap-4">
+          {['primary','secondary','tertiary','danger'].map(color => (
+            <Badge variant='text' key={color} color={color as Color} text="배지" type="solid"/>
+          ))}
+        </div>
+        <div className="flex flex-col gap-4">
+          {['primary','secondary','tertiary','danger'].map(color => (
+            <Badge variant='text' key={color} color={color as Color} text="배지" type="outline"/>
+          ))}
+        </div>
+        <div className="flex flex-col gap-4">
+          {['primary','secondary','tertiary','danger'].map(color => (
+            <Badge variant='text' key={color} color={color as Color} text="배지" type="subtle"/>
+          ))}
+        </div>
       </section>
     );
   },

@@ -1,94 +1,148 @@
-import { cva, type VariantProps } from 'class-variance-authority';
+import { cva } from 'class-variance-authority';
 
 import { cn } from '../../utils';
+import { labelVariants } from '../Typo';
 
-const badgeVariants = cva(
-  'inline-flex items-center rounded-2px border px-1 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2',
+const dotBadgeVariants = cva(
+  'rounded-full size-1.5',
   {
     variants: {
-      variant: {
-        subtle: 'border-transparent',
-        solid: 'border-transparent',
-        outline: 'bg-transparent',
+      color: {
+        primary: 'bg-primary',
+        new: 'bg-point'
+      }
+    },
+    defaultVariants: {
+      color: 'primary'
+    }
+  }
+);
+
+const countBadgeVariants = cva(
+  ['h-5 px-3 rounded-full', labelVariants({ size: 'sm' })],
+  {
+    variants: {
+      color: {
+        primary: 'bg-primary color-primary-foreground',
+        new: 'bg-point color-point-foreground'
+      }
+    },
+    defaultVariants: {
+      color: 'primary'
+    }
+  }
+)
+const textBadgeVariants = cva(
+  ['rounded-2 px-3 box-border h-6',labelVariants({ size: 'sm' })],
+  {
+    variants: {
+      color: {
+        primary:'',
+        secondary:'',
+        tertiary: '',
+        danger: ''
       },
-      colorScheme: {
-        primary: 'bg-primary text-primary-foreground',
-        success: 'bg-success text-success-foreground',
-        warning: 'bg-warning text-warning-foreground',
-        error: 'bg-error text-error-foreground',
-        info: 'bg-info text-info-foreground',
-      },
+      type: {
+        solid: '',
+        outline: '',
+        subtle:''
+      }
+    },
+    defaultVariants: {
+      color: 'primary',
+      type: 'solid',
     },
     compoundVariants: [
       {
-        variant: 'outline',
-        colorScheme: 'primary',
-        className: 'bg-transparent border-primary text-primary-600',
+        color: 'primary',
+        type: 'solid',
+        className: 'bg-primary color-primary-foreground'
       },
       {
-        variant: 'outline',
-        colorScheme: 'success',
-        className: 'bg-transparent border-success text-success-600',
+        color: 'primary',
+        type: 'outline',
+        className: 'border border-primary color-primary-60'
       },
       {
-        variant: 'outline',
-        colorScheme: 'warning',
-        className: 'bg-transparent border-warning text-warning-600',
+        color: 'primary',
+        type: 'subtle',
+        className: 'bg-primary-5 color-primary-60'
       },
       {
-        variant: 'outline',
-        colorScheme: 'error',
-        className: 'bg-transparent border-error text-error-600',
+        color: 'secondary',
+        type: 'solid',
+        className: 'bg-secondary color-secondary-foreground'
       },
       {
-        variant: 'outline',
-        colorScheme: 'info',
-        className: 'bg-transparent border-info text-info-600',
+        color: 'secondary',
+        type: 'outline',
+        className: 'border border-secondary color-secondary-60'
       },
       {
-        variant: 'subtle',
-        colorScheme: 'primary',
-        className: 'bg-primary-100 text-primary-800',
+        color: 'secondary',
+        type: 'subtle',
+        className: 'bg-secondary-5 color-secondary-60'
       },
       {
-        variant: 'subtle',
-        colorScheme: 'success',
-        className: 'bg-success-100 text-success-800',
+        color: 'tertiary',
+        type: 'solid',
+        className: 'bg-grayscale-70 color-grayscale-foreground'
       },
       {
-        variant: 'subtle',
-        colorScheme: 'warning',
-        className: 'bg-warning-100 text-warning-800',
+        color: 'tertiary',
+        type: 'outline',
+        className: 'border border-grayscale-70 color-grayscale-80'
       },
       {
-        variant: 'subtle',
-        colorScheme: 'error',
-        className: 'bg-error-100 text-error-800',
+        color: 'tertiary',
+        type: 'subtle',
+        className: 'bg-grayscale-20 color-grayscale-80'
       },
       {
-        variant: 'subtle',
-        colorScheme: 'info',
-        className: 'bg-info-100 text-info-800',
+        color: 'danger',
+        type: 'solid',
+        className: 'bg-danger color-danger-foreground'
       },
-    ],
-    defaultVariants: {
-      variant: 'subtle',
-      colorScheme: 'primary',
-    },
+      {
+        color: 'danger',
+        type: 'outline',
+        className: 'border border-danger color-danger-60'
+      },
+      {
+        color: 'danger',
+        type: 'subtle',
+        className: 'bg-danger-5 color-danger-60'
+      },
+    ]
   },
 );
 
-export type BadgeProps = React.HTMLAttributes<HTMLDivElement> &
-  VariantProps<typeof badgeVariants>;
+export type BadgeProps = React.HTMLAttributes<HTMLSpanElement> & {
+  variant?: 'dot'|'count'|'text';
+  color?: 'primary'|'new'|'secondary'|'tertiary'|'danger';
+  type?: 'solid'|'outline'|'subtle';
+  count?: number;
+  text?: string;
+  isOverCount?: boolean;
+}
 
-function Badge({ className, variant, colorScheme, ...props }: BadgeProps) {
+function Badge({ className, variant = 'text', color = 'primary', type = 'solid',count = 0,text = '', isOverCount = false, ...props }: BadgeProps) {
+  const style = variant === 'dot' 
+    ? dotBadgeVariants({ color: color!=='new'?'primary':'new' }) 
+    : variant === 'count' 
+      ? countBadgeVariants({ color: color!=='new'?'primary':'new' }) 
+      : textBadgeVariants({ color: color === 'new' ? 'danger' : color, type })
+  
   return (
-    <div
-      className={cn(badgeVariants({ variant, colorScheme }), className)}
+    <span
+      role="status"
+      className={cn('inline-flex place-items-center',style, className)}
       {...props}
-    />
+    >
+      {variant === 'count' && `${isOverCount ? '+' : ''}${count}`}
+      {variant === 'text' && text}
+      </span>
   );
 }
 
-// eslint-disable-next-line react-refresh/only-export-components
-export { Badge, badgeVariants };
+export { Badge };
