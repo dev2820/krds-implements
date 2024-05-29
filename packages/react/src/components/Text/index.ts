@@ -18,3 +18,4 @@ export const Text = {
   Detail
 }
 
+export { labelVariants } from "./Label"

@@ -63,7 +63,7 @@
 - [ ] calendar
 - [ ] disclosure
 - [ ] modal
-- [ ] badge
+- [ ] [badge](https://uiux.egovframe.go.kr/guide/component/component_04_06.html) (@dev2820)
 - [x] accordion
 - [ ] image
 - [ ] carousel
@@ -73,7 +73,7 @@
 #### 액션
 
 - [ ] link
-- [ ] [button](https://uiux.egovframe.go.kr/guide/component/component_05_02.html) (@dev2820)
+- [x] [button](https://uiux.egovframe.go.kr/guide/component/component_05_02.html) (@dev2820)
 
 #### 선택
 

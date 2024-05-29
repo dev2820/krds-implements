@@ -2,7 +2,10 @@ import type { ComponentProps } from 'react';
 import { DayPicker } from 'react-day-picker';
 
 import { cn } from '../../utils';
-import { buttonVariants } from '../Button';
+// import { buttonVariants } from '../Button';
+// FIXME: buttonVariatns 대체할 것
+
+const buttonVariants = (opt:any) => ''
 
 export type CalendarProps = ComponentProps<typeof DayPicker>;
 
