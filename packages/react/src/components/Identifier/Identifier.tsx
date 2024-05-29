@@ -6,7 +6,7 @@ import {
   forwardRef,
   ComponentPropsWithoutRef,
 } from 'react';
-import { Text } from '../Text';
+import { Typo } from '../Typo';
 import { createContext } from '../../hooks/create-context';
 import { cn } from '../../utils';
 
@@ -94,13 +94,13 @@ const Logo = forwardRef<HTMLImageElement, LogoProps>(
 
 Logo.displayName = "IdentifierLogo"
 
-export type GuideProps = ComponentProps<typeof Text.Body>;
+export type GuideProps = ComponentProps<typeof Typo.Body>;
 
 const Guide = forwardRef<HTMLSpanElement, GuideProps>(
   ({ className, ...props }, ref) => {
     
     return (
-      <Text.Body as="span" size="sm" className={className} ref={ref} {...props}/>
+      <Typo.Body as="span" size="sm" className={className} ref={ref} {...props}/>
     );
   },
 );

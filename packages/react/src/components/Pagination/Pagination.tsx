@@ -4,6 +4,7 @@ import { forwardRef } from 'react';
 import { cn } from '../../utils';
 import { type ButtonProps } from '../Button';
 
+// FIXME: buttonVariants 대체 필요
 const buttonVariants = (opt:any) => '';
 
 export type PaginationProps = ComponentProps<typeof Pagination>;

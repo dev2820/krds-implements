@@ -1,13 +1,13 @@
 import {
-  Links,
-  type LinksProps
-} from './Links';
+  Body,
+  type BodyProps
+} from './Body';
 
 const sizes = ['lg','md','sm'] as const;
 
 export default {
-  Links: 'Components/Text/Links',
-  component: Links,
+  Body: 'Components/Typo/Body',
+  component: Body,
   parameters: {
     layout: 'centered',
   },
@@ -15,11 +15,11 @@ export default {
   argTypes: {
     size: {
       options: sizes,
-      description: 'Links 폰트 크기',
+      description: 'Body 폰트 크기',
       control: { type: 'select' }
     },
     bold: {
-      description: 'Links 폰트 굵기',
+      description: 'Body 폰트 굵기',
       control: { type: 'boolean'}
     }
   },
@@ -30,16 +30,16 @@ export default {
 };
 
 export const Default = {
-  render: (props: LinksProps<'p'>) => {
+  render: (props: BodyProps<'p'>) => {
     return (
       <section className="p-4 w-480px">
-        <Links as="p" {...props}>
+        <Body as="p" {...props}>
           다람쥐 헌 쳇바퀴에 타고파
-        </Links>
+        </Body>
         <br/>
-        <Links as="p" {...props}>
+        <Body as="p" {...props}>
           The quick brown fox jumps over the lazy dog
-        </Links>
+        </Body>
       </section>
     );
   },
@@ -49,19 +49,19 @@ export const Bold = {
   render: () => {
     return (
       <section className="p-4 w-480px">
-        <Links as="p">
+        <Body as="p">
           다람쥐 헌 쳇바퀴에 타고파
-        </Links>
-        <Links as="p" bold>
+        </Body>
+        <Body as="p" bold>
           다람쥐 헌 쳇바퀴에 타고파
-        </Links>
+        </Body>
         <br/>
-        <Links as="p">
+        <Body as="p">
           The quick brown fox jumps over the lazy dog
-        </Links>
-        <Links as="p" bold>
+        </Body>
+        <Body as="p" bold>
           The quick brown fox jumps over the lazy dog
-        </Links>
+        </Body>
       </section>
     );
   },
@@ -75,9 +75,9 @@ export const Size = {
         <section className='flex flex-col gap-4'>
         {
           sizes.map(size=>(
-            <Links as="p" size={size} key={size+'kr'}>
+            <Body as="p" size={size} key={size+'kr'}>
               ({size}) 다람쥐 헌 쳇바퀴에 타고파
-            </Links>
+            </Body>
           ))
         }
         </section>
@@ -86,9 +86,9 @@ export const Size = {
         <section className='flex flex-col gap-4'>
         {
           sizes.map(size=>(
-            <Links as="p" size={size} key={size+'en'}>
+            <Body as="p" size={size} key={size+'en'}>
               ({size}) The quick brown fox jumps over the lazy dog
-            </Links>
+            </Body>
           ))
         }
         </section>

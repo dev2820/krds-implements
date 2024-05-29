@@ -5,7 +5,7 @@ import type { ButtonHTMLAttributes, ReactNode } from 'react';
 import { forwardRef } from 'react';
 
 import { cn } from '../../utils';
-import { labelVariants } from '../Text';
+import { labelVariants } from '../Typo';
 
 const buttonVariants = cva(
   [

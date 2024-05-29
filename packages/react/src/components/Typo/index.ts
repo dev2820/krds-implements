@@ -10,7 +10,7 @@ import { Title } from "./Title"
 import { Body } from "./Body"
 import { Detail } from "./Detail"
 
-export const Text = {
+export const Typo = {
   Display,
   Heading,
   Title,

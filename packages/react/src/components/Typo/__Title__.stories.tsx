@@ -6,7 +6,7 @@ import {
 const sizes = ['2xl','xl','lg','md','sm','xs'] as const;
 
 export default {
-  title: 'Components/Text/Title',
+  title: 'Components/Typo/Title',
   component: Title,
   parameters: {
     layout: 'centered',
