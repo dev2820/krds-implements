@@ -1,1 +1,0 @@
-import{D as o}from"./Display-BzLlPsAt.js";import{H as r}from"./Heading-CvIzU8k7.js";import{T as m}from"./Title-BYTkKWDv.js";import{B as t}from"./Body-azYe1GGa.js";import{D as a}from"./Detail-maxWErGh.js";const D={Display:o,Heading:r,Title:m,Body:t,Detail:a};export{D as T};
