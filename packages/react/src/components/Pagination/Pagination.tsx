@@ -2,7 +2,9 @@ import type { ComponentProps } from 'react';
 import { forwardRef } from 'react';
 
 import { cn } from '../../utils';
-import { type ButtonProps, buttonVariants } from '../Button';
+import { type ButtonProps } from '../Button';
+
+const buttonVariants = (opt:any) => '';
 
 export type PaginationProps = ComponentProps<typeof Pagination>;
 const Pagination = ({ className, ...props }: ComponentProps<'nav'>) => (
