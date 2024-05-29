@@ -1,6 +1,6 @@
 import * as Icon from 'lucide-react';
 
-import { Text } from '../Text';
+import { Typo } from '../Typo';
 import {
   Masthead,
   MastheadContainer,
@@ -34,29 +34,29 @@ export const Default = {
       <section className="p-4 w-full">
         <Masthead {...props}>
           <MastheadContainer className="pl-28px korean-flag flex flex-row items-center flex-wrap <mobile:gap-2">
-            <Text.Body size="sm" className="mr-5i color-text-title">
+            <Typo.Body size="sm" className="mr-5i color-text-title">
               이 누리집은 가짜 누리집입니다.
-            </Text.Body>
+            </Typo.Body>
             <MastheadDropdown className="color-secondary flex flex-row items-center gap-1">
-              <Text.Body size="sm" className="color-secondary">
+              <Typo.Body size="sm" className="color-secondary">
                 가짜 누리집 열기
-              </Text.Body>
+              </Typo.Body>
             </MastheadDropdown>
           </MastheadContainer>
           <MastheadDescription>
             <MastheadDescriptionTitle className="goverment pl-28px flex flex-row items-center">
-              <Text.Body size="md" bold>
+              <Typo.Body size="md" bold>
                 가짜 누리집 주소 확인하기
-              </Text.Body>
+              </Typo.Body>
             </MastheadDescriptionTitle>
             <MastheadDescriptionContent>
-              <Text.Detail as="p" className="mb-7 color-text-detail">
+              <Typo.Detail as="p" className="mb-7 color-text-detail">
                 go.kr을 사용하지 않는 이 누리집은 대한민국 정부에서 관리하지
                 않는 가짜 누리집입니다.
                 <br />이 밖에 or.kr 또는 .kr등 다른 도메인 주소를 사용하지 않고
                 있다면 아래 URL에서 도메인 주소를 확인할 수 없습니다.
-              </Text.Detail>
-              <Text.Body
+              </Typo.Detail>
+              <Typo.Body
                 as="a"
                 href="#"
                 size="sm"
@@ -64,7 +64,7 @@ export const Default = {
               >
                 안 운영중인 가짜 누리집안보기
                 <Icon.ExternalLink className="inline-block" size={20} />
-              </Text.Body>
+              </Typo.Body>
             </MastheadDescriptionContent>
           </MastheadDescription>
         </Masthead>

@@ -1,13 +1,13 @@
 import {
-  Display,
-  type DisplayProps
-} from './Display';
+Heading,
+type HeadingProps
+} from './Heading';
 
 const sizes = ['lg','md','sm'] as const;
 
 export default {
-  title: 'Components/Text/Display',
-  component: Display,
+  title: 'Components/Typo/Heading',
+  component: Heading,
   parameters: {
     layout: 'centered',
   },
@@ -15,7 +15,7 @@ export default {
   argTypes: {
     size: {
       options: sizes,
-      description: 'Display 폰트 크기',
+      description: 'Heading 폰트 크기',
       control: { type: 'select' }
     }
   },
@@ -25,16 +25,16 @@ export default {
 };
 
 export const Default = {
-  render: (props: DisplayProps<'p'>) => {
+  render: (props: HeadingProps<'p'>) => {
     return (
       <section className="p-4 w-480px">
-        <Display as="p" {...props}>
+        <Heading as="p" {...props}>
           다람쥐 헌 쳇바퀴에 타고파
-        </Display>
+        </Heading>
         <br/>
-        <Display as="p" {...props}>
+        <Heading as="p" {...props}>
           The quick brown fox jumps over the lazy dog
-        </Display>
+        </Heading>
       </section>
     );
   },
@@ -49,9 +49,9 @@ export const Size = {
         <section className='flex flex-col gap-4'>
         {
           sizes.map(size=>(
-            <Display as="p" size={size} key={size+'kr'}>
+            <Heading as="p" size={size} key={size+'kr'}>
               ({size}) 다람쥐 헌 쳇바퀴에 타고파
-            </Display>
+            </Heading>
           ))
         }
         </section>
@@ -60,9 +60,9 @@ export const Size = {
         <section className='flex flex-col gap-4'>
         {
           sizes.map(size=>(
-            <Display as="p" size={size} key={size+'en'}>
+            <Heading as="p" size={size} key={size+'en'}>
               ({size}) The quick brown fox jumps over the lazy dog
-            </Display>
+            </Heading>
           ))
         }
         </section>

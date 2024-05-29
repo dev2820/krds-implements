@@ -9,7 +9,7 @@ import type {
 } from 'react';
 
 import { cn } from '../../utils';
-import { Text } from '../Text';
+import { Typo } from '../Typo';
 
 export type AccordionProps = ComponentProps<typeof Accordion>;
 const Accordion = AccordionPrimitive.Root;
@@ -44,9 +44,9 @@ const AccordionTrigger = forwardRef<
       )}
       {...props}
     >
-      <Text.Body size="lg" bold className="flex-1 text-pretty">
+      <Typo.Body size="lg" bold className="flex-1 text-pretty">
         {children}
-      </Text.Body>
+      </Typo.Body>
       <Icon.ChevronDown
         size={16}
         className="shrink-0 transition-transform duration-200"
