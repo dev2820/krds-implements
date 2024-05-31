@@ -27,6 +27,14 @@ describe('Badge', () => {
     expect(notCountBadge).toHaveTextContent('');
   });
 
+  it('count 타입 뱃지는 isOverCount 설정시 + 문자가 앞에 붙어야한다.', () => {
+    render(<Badge variant="count" isOverCount count={10} />);
+
+    const countBadge = screen.getByRole('status');
+
+    expect(countBadge).toHaveTextContent('+10');
+  });
+
   it('text 타입 뱃지는 text attribute로 제공한 값을 textContent로 포함해야한다.', () => {
     const { rerender } = render(<Badge variant="text" text="foo" />);
 
