@@ -30,14 +30,17 @@ export default defineConfig({
         hover: TOKEN.colors.secondary[60],
         active: TOKEN.colors.secondary[70],
         disabled: TOKEN.colors.grayscale[20],
+        foreground: TOKEN.colors.grayscale[0]
       },
       point: {
         ...TOKEN.colors.point,
         DEFAULT: TOKEN.colors.point[50],
+        foreground: TOKEN.colors.grayscale[0]
       },
       grayscale: {
         ...TOKEN.colors.grayscale,
         DEFAULT: TOKEN.colors.grayscale[10],
+        foreground: TOKEN.colors.grayscale[0]
       },
       alpha: {
         ...TOKEN.colors.alpha,
@@ -45,6 +48,7 @@ export default defineConfig({
       danger: {
         ...TOKEN.colors.danger,
         DEFAULT: TOKEN.colors.danger[50],
+        foreground: TOKEN.colors.grayscale[0]
       },
       warning: {
         ...TOKEN.colors.warning,
