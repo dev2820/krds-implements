@@ -72,7 +72,7 @@
 
 #### 액션
 
-- [ ] link
+- [x] [link](https://uiux.egovframe.go.kr/guide/component/component_05_01.html) (@dev2820)
 - [x] [button](https://uiux.egovframe.go.kr/guide/component/component_05_02.html) (@dev2820)
 
 #### 선택
