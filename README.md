@@ -4,7 +4,7 @@
 
 ## Goal
 
-- krds를 충실히 구현하는 라이브러리를 만들어 누구나 간편하게 **디지털 정부서비스  
+- krds를 충실히 구현하는 프로젝트를 만들어 누구나 간편하게 **디지털 정부서비스  
   UI/UX 가이드라인**을 만족하는 프로젝트를 쉽게 구현하는 것을 돕습니다.
 - 접근성을 충분히 고려하고 학습합니다.
 - 테스트를 작성해 목표를 명확히하고 안정성을 증명합니다.
@@ -51,7 +51,7 @@
 
 - [ ] skip link
 - [ ] main menu
-- [ ] [breadcrumb](https://uiux.egovframe.go.kr/guide/component/component_03_03.html) (@dev2820)
+- [x] [breadcrumb](https://uiux.egovframe.go.kr/guide/component/component_03_03.html) (@dev2820)
 - [ ] side navigation
 - [ ] in-page navigation
 - [ ] pagination
