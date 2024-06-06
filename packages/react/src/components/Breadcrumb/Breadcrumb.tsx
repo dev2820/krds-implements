@@ -1,5 +1,5 @@
 import { Slot } from '@radix-ui/react-slot';
-import { VariantProps, cva } from 'class-variance-authority';
+import { Ellipsis as EllipsisIcon } from 'lucide-react';
 
 import { forwardRef } from 'react';
 import type {
@@ -8,48 +8,72 @@ import type {
   ComponentProps,
 } from 'react';
 
+import { createContext } from '../../hooks/create-context';
 import { cn } from '../../utils';
 
-export type BreadcrumbProps = ComponentProps<typeof Breadcrumb>;
-const Breadcrumb = forwardRef<
+const [Provider, useContext] = createContext<{
+  separator?: ReactNode;
+  ellipsis?: ReactNode;
+}>({
+  name: 'Breadcrumb',
+  hookName: 'useBreadcrumbContext',
+  providerName: 'BreadcrumbProvider',
+  defaultValue: {
+    separator: '/',
+    ellipsis: <EllipsisIcon size={16} />,
+  },
+});
+
+export type BreadcrumbProps = ComponentProps<typeof Root>;
+const Root = forwardRef<
   HTMLElement,
   ComponentPropsWithoutRef<'nav'> & {
     separator?: ReactNode;
+    ellipsis?: ReactNode;
   }
->(({ ...props }, ref) => <nav ref={ref} aria-label="breadcrumb" {...props} />);
-Breadcrumb.displayName = 'Breadcrumb';
+>(({ separator, ellipsis, ...props }, ref) => {
+  const defaultValue = {
+    separator: separator ?? '/',
+    ellipsis: ellipsis ?? <EllipsisIcon size={16} />,
+  };
 
-export type BreadcrumbListProps = ComponentProps<typeof BreadcrumbList>;
-const BreadcrumbList = forwardRef<
-  HTMLOListElement,
-  ComponentPropsWithoutRef<'ol'>
->(({ className, ...props }, ref) => (
-  <ol
-    ref={ref}
-    className={cn(
-      'flex flex-wrap items-center gap-1.5 break-words text-sm text-muted-foreground sm:gap-2.5',
-      className,
-    )}
-    {...props}
-  />
-));
-BreadcrumbList.displayName = 'BreadcrumbList';
+  return (
+    <Provider value={defaultValue}>
+      <nav ref={ref} aria-label="breadcrumb" {...props} />
+    </Provider>
+  );
+});
+Root.displayName = 'Breadcrumb';
 
-export type BreadcrumbItemProps = ComponentProps<typeof BreadcrumbItem>;
-const BreadcrumbItem = forwardRef<
-  HTMLLIElement,
-  ComponentPropsWithoutRef<'li'>
->(({ className, ...props }, ref) => (
-  <li
-    ref={ref}
-    className={cn('inline-flex items-center gap-1.5', className)}
-    {...props}
-  />
-));
-BreadcrumbItem.displayName = 'BreadcrumbItem';
+export type BreadcrumbListProps = ComponentProps<typeof List>;
+const List = forwardRef<HTMLOListElement, ComponentPropsWithoutRef<'ol'>>(
+  ({ className, ...props }, ref) => (
+    <ol
+      ref={ref}
+      className={cn(
+        'flex flex-wrap items-center gap-2 break-words text-sm h-6',
+        className,
+      )}
+      {...props}
+    />
+  ),
+);
+List.displayName = 'BreadcrumbList';
 
-export type BreadcrumbLinkProps = ComponentProps<typeof BreadcrumbLink>;
-const BreadcrumbLink = forwardRef<
+export type BreadcrumbItemProps = ComponentProps<typeof Item>;
+const Item = forwardRef<HTMLLIElement, ComponentPropsWithoutRef<'li'>>(
+  ({ className, ...props }, ref) => (
+    <li
+      ref={ref}
+      className={cn('inline-flex items-center gap-1.5', className)}
+      {...props}
+    />
+  ),
+);
+Item.displayName = 'BreadcrumbItem';
+
+export type BreadcrumbLinkProps = ComponentProps<typeof Link>;
+const Link = forwardRef<
   HTMLAnchorElement,
   ComponentPropsWithoutRef<'a'> & {
     asChild?: boolean;
@@ -60,86 +84,53 @@ const BreadcrumbLink = forwardRef<
   return (
     <Comp
       ref={ref}
-      className={cn('transition-colors hover:text-foreground', className)}
+      className={cn(
+        'transition-colors hover:bg-secondary-5 active:bg-secondary-10 disabled:bg-transparent disabled:color-grayscale-50 rounded-2 underline p-6px',
+        className,
+      )}
       {...props}
     />
   );
 });
-BreadcrumbLink.displayName = 'BreadcrumbLink';
+Link.displayName = 'BreadcrumbLink';
 
-export type BreadcrumbPageProps = ComponentProps<typeof BreadcrumbPage>;
-const BreadcrumbPage = forwardRef<
-  HTMLSpanElement,
-  ComponentPropsWithoutRef<'span'>
->(({ className, ...props }, ref) => (
-  <span
-    ref={ref}
-    role="link"
-    aria-disabled="true"
-    aria-current="page"
-    className={cn('font-normal text-foreground', className)}
-    {...props}
-  />
-));
-BreadcrumbPage.displayName = 'BreadcrumbPage';
+export type BreadcrumbSeparatorProps = ComponentProps<typeof Separator>;
+const Separator = ({ children, className, ...props }: ComponentProps<'li'>) => {
+  const { separator } = useContext();
 
-const breadcrumbSeparatorVariants = cva('', {
-  variants: {
-    type: {
-      slash: 'i-t-slash',
-      dash: 'i-t-dash',
-      arrow: 'i-t-arrow',
-    },
-  },
-  defaultVariants: {
-    type: 'slash',
-  },
-});
-export type BreadcrumbSeparatorProps = ComponentProps<
-  typeof BreadcrumbSeparator
->;
-const BreadcrumbSeparator = ({
-  type,
-  children,
-  className,
-  ...props
-}: ComponentProps<'li'> & VariantProps<typeof breadcrumbSeparatorVariants>) => (
-  <li
-    role="presentation"
-    aria-hidden="true"
-    className={cn('[&>svg]:size-3.5', className)}
-    {...props}
-  >
-    {children ?? (
-      <i className={cn(breadcrumbSeparatorVariants({ type }), 'text-6')} />
-    )}
-  </li>
-);
-BreadcrumbSeparator.displayName = 'BreadcrumbSeparator';
-
-export type BreadcrumbEllipsisProps = ComponentProps<typeof BreadcrumbEllipsis>;
-const BreadcrumbEllipsis = ({
-  className,
-  ...props
-}: ComponentProps<'span'>) => (
-  <span
-    role="presentation"
-    aria-hidden="true"
-    className={cn('flex h-9 w-9 items-center justify-center', className)}
-    {...props}
-  >
-    <span className="h-4 w-4">...</span>
-    <span className="sr-only">More</span>
-  </span>
-);
-BreadcrumbEllipsis.displayName = 'BreadcrumbElipssis';
-
-export {
-  Breadcrumb,
-  BreadcrumbList,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-  BreadcrumbEllipsis,
+  return (
+    <li
+      role="presentation"
+      aria-hidden="true"
+      className={cn('', className)}
+      {...props}
+    >
+      {children ?? separator}
+    </li>
+  );
 };
+Separator.displayName = 'BreadcrumbSeparator';
+
+export type BreadcrumbEllipsisProps = ComponentProps<typeof Ellipsis>;
+const Ellipsis = ({
+  className,
+  children,
+  ...props
+}: ComponentProps<'span'>) => {
+  const { ellipsis } = useContext();
+
+  return (
+    <span
+      role="presentation"
+      aria-hidden="true"
+      className={cn('flex h-9 w-9 items-center justify-center', className)}
+      {...props}
+    >
+      <span className="h-4 w-4">{children ?? ellipsis}</span>
+      <span className="sr-only">More</span>
+    </span>
+  );
+};
+Ellipsis.displayName = 'BreadcrumbElipssis';
+
+export { Root, List, Item, Link, Separator, Ellipsis };
