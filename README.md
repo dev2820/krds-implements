@@ -51,7 +51,7 @@
 
 - [ ] skip link
 - [ ] main menu
-- [ ] breadcrumb
+- [ ] [breadcrumb](https://uiux.egovframe.go.kr/guide/component/component_03_03.html) (@dev2820)
 - [ ] side navigation
 - [ ] in-page navigation
 - [ ] pagination
@@ -63,8 +63,8 @@
 - [ ] calendar
 - [ ] disclosure
 - [ ] modal
-- [ ] [badge](https://uiux.egovframe.go.kr/guide/component/component_04_06.html) (@dev2820)
-- [x] accordion
+- [x] [badge](https://uiux.egovframe.go.kr/guide/component/component_04_06.html) (@dev2820)
+- [x] [accordion](https://uiux.egovframe.go.kr/guide/component/component_04_07.html) (@dev2820)
 - [ ] image
 - [ ] carousel
 - [ ] tab
@@ -85,7 +85,7 @@
 #### 피드백
 
 - [ ] step indicator
-- [ ] spinner (@dev2820)
+- [x] [spinner](https://uiux.egovframe.go.kr/guide/component/component_07_02.html) (@dev2820)
 
 #### 도움
 
