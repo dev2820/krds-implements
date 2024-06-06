@@ -19,3 +19,4 @@ export * from './Tabs';
 export * from './Textarea';
 export * from './Tooltip';
 export * from './Identifier';
+export * from './Link';
