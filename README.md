@@ -61,8 +61,8 @@
 - [ ] structued list
 - [ ] critical alerts
 - [ ] calendar
-- [ ] disclosure
-- [ ] modal
+- [x] [disclosure](https://uiux.egovframe.go.kr/guide/component/component_04_04.html) (@dev2820)
+- [ ] [modal](https://uiux.egovframe.go.kr/guide/component/component_04_05.html) (@dev2820)
 - [x] [badge](https://uiux.egovframe.go.kr/guide/component/component_04_06.html) (@dev2820)
 - [x] [accordion](https://uiux.egovframe.go.kr/guide/component/component_04_07.html) (@dev2820)
 - [ ] image
@@ -80,7 +80,7 @@
 - [ ] radio button
 - [ ] checkbox
 - [ ] select
-- [ ] tag
+- [ ] [tag](https://uiux.egovframe.go.kr/guide/component/component_06_04.html) (@dev2820)
 
 #### 피드백
 
