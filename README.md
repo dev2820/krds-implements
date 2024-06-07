@@ -36,13 +36,13 @@
 
 - [x] [masthead](https://uiux.egovframe.go.kr/guide/component/component_02_01.html) (@dev2820)
 - [x] [identifier](https://uiux.egovframe.go.kr/guide/component/component_02_04.html) (@dev2820)
-- [ ] footer (X, 너무 복잡해서 재사용성 있는 컴포넌트로 보기 어려움)
-- [ ] header (X, 너무 복잡해서 재사용성 있는 컴포넌트로 보기 어려움)
+- [ ] ~~footer~~ (X, 너무 복잡해서 재사용성 있는 컴포넌트로 보기 어려움)
+- [ ] ~~header~~ (X, 너무 복잡해서 재사용성 있는 컴포넌트로 보기 어려움)
 
 #### 탐색
 
 - [ ] skip link
-- [ ] main menu (X, 너무 복잡해서 재사용성 있는 컴포넌트로 보기 어려움)
+- [ ] ~~main menu~~ (X, 너무 복잡해서 재사용성 있는 컴포넌트로 보기 어려움)
 - [x] [breadcrumb](https://uiux.egovframe.go.kr/guide/component/component_03_03.html) (@dev2820)
 - [ ] side navigation
 - [ ] in-page navigation
@@ -81,10 +81,10 @@
 
 #### 도움
 
-- [ ] help panel (X, 너무 복잡해서 재사용성 있는 컴포넌트로 보기 어려움)
-- [ ] tutorial panel (X, 너무 복잡해서 재사용성 있는 컴포넌트로 보기 어려움)
-- [ ] contextual help (X, 너무 복잡해서 재사용성 있는 컴포넌트로 보기 어려움)
-- [ ] coach mark (X, 너무 복잡해서 재사용성 있는 컴포넌트로 보기 어려움)
+- [ ] ~~help panel~~ (X, 너무 복잡해서 재사용성 있는 컴포넌트로 보기 어려움)
+- [ ] ~~tutorial panel~~ (X, 너무 복잡해서 재사용성 있는 컴포넌트로 보기 어려움)
+- [ ] ~~contextual help~~ (X, 너무 복잡해서 재사용성 있는 컴포넌트로 보기 어려움)
+- [ ] ~~coach mark~~ (X, 너무 복잡해서 재사용성 있는 컴포넌트로 보기 어려움)
 
 #### 입력
 
