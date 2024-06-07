@@ -57,7 +57,7 @@
 - [ ] [modal](https://uiux.egovframe.go.kr/guide/component/component_04_05.html) (@dev2820)
 - [x] [badge](https://uiux.egovframe.go.kr/guide/component/component_04_06.html) (@dev2820)
 - [x] [accordion](https://uiux.egovframe.go.kr/guide/component/component_04_07.html) (@dev2820)
-- [ ] image
+- [ ] ~~image~~ (X, 구지...?)
 - [ ] carousel
 - [ ] tab
 - [ ] table
