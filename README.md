@@ -43,7 +43,7 @@
 
 #### 탐색
 
-- [ ] [skip link](https://uiux.egovframe.go.kr/guide/component/component_03_01.html) (@dev2820)
+- [x] [skip link](https://uiux.egovframe.go.kr/guide/component/component_03_01.html) (@dev2820)
 - [ ] ~~main menu~~ (X, 너무 복잡해서 재사용성 있는 컴포넌트로 보기 어려움)
 - [x] [breadcrumb](https://uiux.egovframe.go.kr/guide/component/component_03_03.html) (@dev2820)
 - [ ] side navigation
@@ -56,7 +56,7 @@
 - [ ] critical alerts
 - [ ] calendar
 - [x] [disclosure](https://uiux.egovframe.go.kr/guide/component/component_04_04.html) (@dev2820)
-- [ ] [modal](https://uiux.egovframe.go.kr/guide/component/component_04_05.html) (@dev2820)
+- [x] [modal](https://uiux.egovframe.go.kr/guide/component/component_04_05.html) (@dev2820)
 - [x] [badge](https://uiux.egovframe.go.kr/guide/component/component_04_06.html) (@dev2820)
 - [x] [accordion](https://uiux.egovframe.go.kr/guide/component/component_04_07.html) (@dev2820)
 - [ ] ~~image~~ (X, 구지...?)
