@@ -20,6 +20,7 @@ const Tag = forwardRef<HTMLButtonElement, ComponentProps<'button'>>(
           className,
         )}
         ref={ref}
+        aria-pressed="true"
         {...props}
       >
         <Typo.Label size="sm">{children}</Typo.Label>
