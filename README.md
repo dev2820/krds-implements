@@ -41,7 +41,7 @@
 
 #### 탐색
 
-- [ ] skip link
+- [ ] [skip link](https://uiux.egovframe.go.kr/guide/component/component_03_01.html) (@dev2820)
 - [ ] ~~main menu~~ (X, 너무 복잡해서 재사용성 있는 컴포넌트로 보기 어려움)
 - [x] [breadcrumb](https://uiux.egovframe.go.kr/guide/component/component_03_03.html) (@dev2820)
 - [ ] side navigation
@@ -72,7 +72,7 @@
 - [ ] radio button
 - [ ] checkbox
 - [ ] select
-- [ ] [tag](https://uiux.egovframe.go.kr/guide/component/component_06_04.html) (@dev2820)
+- [x] [tag](https://uiux.egovframe.go.kr/guide/component/component_06_04.html) (@dev2820)
 
 #### 피드백
 
