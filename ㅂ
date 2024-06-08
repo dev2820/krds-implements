@@ -1,0 +1,25 @@
+fix: add aria-pressed to tag
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# 현재 브랜치 main
+# 브랜치가 'origin/main'에 맞게 업데이트된 상태입니다.
+#
+# 커밋할 변경 사항:
+#	수정함:        packages/react/src/components/Tag/Tag.tsx
+#
+# ------------------------ >8 ------------------------
+# 위의 줄을 바꾸거나 지우지 마십시오.
+# 아래 있는 내용은 모두 무시됩니다.
+diff --git a/packages/react/src/components/Tag/Tag.tsx b/packages/react/src/components/Tag/Tag.tsx
+index d3cdbe5..a79f0c5 100644
+--- a/packages/react/src/components/Tag/Tag.tsx
++++ b/packages/react/src/components/Tag/Tag.tsx
+@@ -20,6 +20,7 @@ const Tag = forwardRef<HTMLButtonElement, ComponentProps<'button'>>(
+           className,
+         )}
+         ref={ref}
++        aria-pressed="true"
+         {...props}
+       >
+         <Typo.Label size="sm">{children}</Typo.Label>
