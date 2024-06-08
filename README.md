@@ -14,13 +14,15 @@
 기여하는 방식은 다음과 같습니다.
 
 1. 구현하고자 하는 컴포넌트를 선택합니다.
-2. issue를 생성합니다. 1. issue에는 구현하고자 하는 컴포넌트와 링크를 첨부합니다.
-   ex) Accordion, link:[https://uiux.egovframe.go.kr/guide/component/component_04_07.html](https://uiux.egovframe.go.kr/guide/component/component_04_07.html) 2. issue 하단에 구현을 과정을 구체적으로 첨부합니다. radix-ui같은 라이브러리를 사용할 예정이라면 이를 기입합니다. 3. (옵션) 테스트 항목을 기입합니다.
-3. issue를 기반으로 branch를 생성하고 PR을 올립니다. 다음의 내용이 포함되어야합니다.
+2. issue를 생성합니다.
+    1. issue에는 구현하고자 하는 컴포넌트와 링크를 첨부합니다.
+   ex) Accordion: [link](https://uiux.egovframe.go.kr/guide/component/component_04_07.html)
+    2. issue 하단에 구현을 과정을 구체적으로 첨부합니다. radix-ui같은 라이브러리를 사용할 예정이라면 이를 기입합니다. 3. (옵션) 테스트 항목을 기입합니다.
+4. issue를 기반으로 branch를 생성하고 PR을 올립니다. 다음의 내용이 포함되어야합니다.
    1. `__{componentName}__.stories.tsx` 파일
    2. `__{componentName}__.spec.tsx` 파일 (옵션)
    3. `{componentName}.tsx` 파일
-4. PR을 리뷰
+5. PR을 리뷰
    자세한 내용은 CONTRIBUTING 문서를 참고해주세요. (작성 예정)
 
 > [!CAUTION] 
